@@ -1,0 +1,44 @@
+<div>
+    <ul>
+        <li ng-repeat="info in list" ng-class="info.class" class="row myBtn" style="padding: 10px 0" >
+            <!--头像-->
+            <div class="col-xs-3" ng-click="getInfo(info.state,info.p_uId)">
+                <img class="p_user_head" ng-src="{{info.head}}">
+            </div>
+            <!--介绍-->
+            <div class="col-xs-9">
+                <div class="row" style="margin-right: 1px;">
+                    <!--昵称 身份-->
+                    <h4 style="margin: 1px;">
+                        <span ng-bind="info.userName"></span>
+                        <span class="label {{info.state==1?'label-success':'label-info'}}" style="font-size: 11px;padding: 2px 4px;" >
+                            <span ng-bind="info.levelName"></span>
+                        </span>
+                        <span class="btn btn-success" style="font-size: 11px;float: right;padding: 5px;" ng-click="pay(info.state,info.p_uId)">
+                            给TA充值
+                        </span>
+                    </h4>
+                    <!--ID-->
+                    <p style="margin: 4px 1px 1px 1px" class="text-muted">
+                        ID:<span ng-bind="info.p_uId"></span>
+                        <span class="my_table_left_line"></span>
+                        出售<span ng-bind="money_name"></span>: <span class="text-danger" style="font-weight: bold" ng-bind="info.money"></span>
+                    </p>
+                    <!--代理商ID-->
+                    <p style="margin:0" class="text-muted" ng-show="info.agencyName?true:false">
+                        代理商:<span ng-bind="info.agencyName"></span>
+                        <span class="my_table_left_line"></span>
+                        代理商ID:<span ng-bind="info.a_uId"></span>
+                    </p>
+                    <p style="margin: 0" class="text-muted">
+                        订单ID:<span ng-bind="info.id"></span>
+                        <span class="my_table_left_line"></span>
+                        <!--创建时间-->
+                        <span class="glyphicon glyphicon-time text-success"> </span>
+                        <span ng-bind="info.createTime"></span>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

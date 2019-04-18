@@ -1,0 +1,74 @@
+<div ng-controller="agency_setInfoCtrl">
+    <!--导航栏-->
+    <router-nav style="padding: 1px;"></router-nav>
+    <div class="j_user_module">
+        <img src="image/a_title.png">
+        <!--代理信息-->
+        <div>
+            <div class="user-group ">
+                <div class="user_ctrl1">
+                    <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <div class="user_ctrl2">
+                    <div>
+                        <input ng-model="userName" placeholder="代理商用户名">
+                    </div>
+                </div>
+            </div>
+            <div class="user-group">
+                <div class="user_ctrl1">
+                    <i class="glyphicon glyphicon-phone"></i>
+                </div>
+                <div class="user_ctrl2">
+                    <div>
+                        <input   ng-model="userPhone" placeholder="手机号">
+                    </div>
+                </div>
+            </div>
+            <div class="user-group ">
+                <div class="user_ctrl1" style="color:#c09853">
+                    <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <div class="user_ctrl2">
+                    <div>
+                        <input   ng-model="loginName" placeholder="登录名">
+                    </div>
+                </div>
+            </div>
+            <div class="user-group ">
+                <div class="user_ctrl1" style="color:#c09853">
+                    <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <div class="user_ctrl2">
+                    <div>
+                        <input ng-model="loginPasswd" placeholder="密码">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--代理身份-->
+        <div>
+            <!--权限列表-->
+            <ul class="j_user_fun_ul">
+                <li class="j_user_fun_li">
+                    <p class="title my_font3">代理等级</p>
+                    <ul style="text-align: left">
+                        <li ng-repeat="data in levelList" class="my_font2 checkbox user-select-none" style="width: 30%;display: inline-block">
+                            <label>
+                                <input type="checkbox"  value="option1" disabled checked>
+                                {{data.name}}
+                            </label>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!--保存-->
+            <div style="width: 100%;text-align: center;margin-top: 30px;" >
+                <button ng-click="saveInfo();" class="btn btn-primary" style="width: 50%;height: 45px;">保存修改</button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 70px;">
+
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div ng-controller="game_onlineRoomSeekCtrl">
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--详情-->
+    <div class="j_user_module">
+        <img src="image/u_p_title.png">
+        <div>
+            <ul class="j_user_fun_ul" style="margin-bottom: 0;">
+                <li class="j_user_fun_li text-left" style="padding: 20px 10px">
+                    <p class="title my_font3">房间信息</p>
+                    <div class="text-left" style="color: #bbb;">
+                        <span class="glyphicon glyphicon-repeat" ng-click="getRoomInfo();" style="float: right;font-size: 2rem;color: #0e90d2"></span>
+                        <p>房间号:<span style="color: #0e90d2;font-size: 1.5rem;" ng-bind="roomInfo.roomId"></span></p>
+
+                        <p>房间状态:<span style="color: #4cae4c;font-size: 1.5rem;margin: 0;">{{roomInfo.status==1?"等待开局":"已开局"}}</span></p>
+
+                        <span>{{roomInfo.roomType==1?"房主模式":"代开模式"}}</span>
+                        <span class="my_table_left_line"></span>
+                        <span >{{Number(roomInfo.circleNum)-Number(roomInfo.lastNum)+1}}</span>/<span  ng-bind="roomInfo.circleNum"></span>圈
+                        <span class="my_table_left_line"></span>
+                        <!--<span><span ng-bind="roomInfo.maxScoreInRoom"></span>封顶</span>-->
+
+                    </div>
+                </li>
+                <li class="j_user_fun_li text-left" style="padding: 20px 10px">
+                    <p class="title my_font3">玩家信息</p>
+                    <ul class="text-left row" style="margin: 0;list-style:none;">
+                        <li ng-repeat="info in playerInfo" class="col-xs-6" style="margin-top: 10px;padding: 0;">
+                            <div style="float: left" ng-click="getPlayerInfo(info.userId);">
+                                <!--头像-->
+                                <img ng-src="{{info.userImg}}" style="width: 60px;height: 60px;padding: 2px;background: #fff;border: 1px solid #ccc;">
+                            </div>
+                            <div style="float: left;color: #aaa;margin-left: 2px;font-size: 1rem">
+                                <!--昵称-->
+                                <p style="color: #777;margin:0 0 5px 0;">
+                                    <span style="font-size: 1.2rem;" ng-bind="info.userName"></span>
+
+                                </p>
+                                <!--ID-->
+                                <p style="margin: 0;">
+                                    ID:<span ng-bind="info.userId"></span>
+                                </p>
+                                <!--游戏中分数-->
+                                <p style="margin: 0;">
+                                    分数:<span ng-bind="info.score"></span>
+                                    <span class="label label-info {{info.userId==roomInfo.createId?'':'hide'}}" style="padding: 1px 2px;">房主</span>
+                                    <span class="label label-warning {{info.zhuang?'':'hide'}}" style="padding: 1px 2px;">庄</span>
+                                </p>
+                            </div>
+
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button ng-click="dissolveRoom();" class="btn btn-danger " style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">解散房间</button>
+</div>

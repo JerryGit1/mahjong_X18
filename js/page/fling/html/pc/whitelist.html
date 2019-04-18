@@ -1,0 +1,85 @@
+<div ng-controller="fling_whitelist">
+
+    <!--导航栏-->
+    <router-nav></router-nav>
+
+    <!--白名单---搜索框-->
+    <div class="panel panel-default" style="margin-top:30px;">
+        <div class="panel-body">
+            <!--要加入的用户ID-->
+            <div class="row">
+                <!--用户ID-->
+                <div class="my_font3" style="float:left;margin-top:20px;line-height:34px;padding:0;width:20%;margin-right:5px;margin-left:10px;text-align: center;" class="col-xs-4">要加入的用户ID</div>
+                <!--input-->
+                <div class="col-xs-4" style="float:left;padding:0;width:50%;margin-top:20px;">
+                    <div>
+                        <input type="text" class="form-control" placeholder="请输入要加入的用户ID" ng-model="jia">
+                    </div>
+                </div>
+                <!--加入按钮-->
+                <div style="float:right;padding:0;width:20%;margin-top:20px;" class="col-xs-4">
+                    <button type="button" class="btn btn-info" ng-click="joinRemList(jia,1);" style="width:100px;height:40px;">加入</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <!--要加入的用户ID-->
+            <div class="row">
+                <!--用户ID-->
+                <div class="my_font3" style="float:left;margin-top:20px;line-height:34px;padding:0;width:20%;margin-right:5px;margin-left:10px;text-align: center;" class="col-xs-4">要查找的用户ID</div>
+                <!--input-->
+                <div class="col-xs-4" style="float:left;padding:0;width:50%;margin-top:20px;">
+                    <div>
+                        <input type="text" class="form-control" placeholder="请输入要加入的用户ID" ng-model="wan">
+                    </div>
+                </div>
+                <!--加入按钮-->
+                <div style="float:right;padding:0;width:20%;margin-top:20px;" class="col-xs-4">
+                    <button type="button" class="btn btn-info" ng-click="checkWhiteList(wan);" style="width:100px;height:40px;">查找</button>
+                </div>
+            </div>
+            <div style="width:100%;height:20px;float:left;"></div>
+        </div>
+    </div>
+
+    <!--白名单列表-->
+    <table class="table my_table" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="border-bottom-width:0;text-align:center;">序号</th>
+            <th style="border-bottom-width:0;">头像</th>
+            <th style="border-bottom-width:0;">昵称</th>
+            <th style="border-bottom-width:0;">ID</th>
+            <th style="border-bottom-width:0;">操作</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in whiteList_data.users" >
+            <!--计算序号-->
+            <td class="text-center" ng-bind="page_num*current_page-page_num+1+$index">1</td>
+            <td style="display:flex;">
+                <div style="float:left;box-flex:1;">
+                    <img class="p_user_head " ng-src="{{info.openImg?info.openImg:'image/head/2.png'}}">
+                </div>
+            </td>
+            <td>
+                <div style="float:left;margin:12px 0 0 20px;">
+                    <p class="text-primary my_font3" style="box-flex:2;font-weight: bold;margin:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><span ng-bind="info.openName"></span></p>
+                </div>
+            </td>
+            <td>
+                <div>
+                    ID:<span ng-bind="info.openId"></span>
+                </div>
+            </td>
+            <td style="color: #327AB7;">
+                <button type="button" class="btn btn-danger" style="margin-top:5px;" ng-click="joinRemList(info,0)" ng-hide="hid">删除</button>
+                <button type="button" class="btn btn-success" style="margin-top:5px;" ng-click="joinRemList(info,1)" ng-show="hid">加入</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div style="height:60px;width:100%;"></div>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

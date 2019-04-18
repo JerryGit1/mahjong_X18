@@ -1,0 +1,47 @@
+<div ng-controller="player_payCtrl">
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--详情-->
+    <div class="j_user_module">
+        <img src="image/a_title.png">
+        <div>
+            <ul class="j_user_fun_ul">
+                <li class="j_user_fun_li text-left" style="padding: 20px 10px">
+                    <p class="title my_font3">用户信息</p>
+                    <div class="text-left">
+                        <!--头像-->
+                        <div style="display: inline-block;width: 100px;vertical-align: top" class="text-center">
+                            <img ng-src="{{userInfo.head?userInfo.head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                            <!--<button ng-click="lookUserInfo()" class="btn btn-primary" style="padding: 5px 10px;margin-top: 10px;">详情</button>-->
+                        </div>
+                        <!--用户id-->
+                        <!--昵称-->
+                        <!--房卡总数-->
+                        <!--注册时间-->
+                        <!--游戏总局数-->
+                        <div class="uInfo" style="display: inline-block">
+                            <p>ID:<span ng-bind="userInfo.id"></span></p>
+                            <p>openId:<span ng-bind="userInfo.openId"></span></p>
+                            <p>昵称:<span>{{get_name(userInfo.userName?userInfo.userName:"")}}</span></p>
+                            <p><span ng-bind="money_name"></span>:<span  style="font-weight: bold;color: #ff0000;" ng-bind="userInfo.money"></span></p>
+                            <p>注册时间:<span ng-bind="userInfo.createTime"></span></p>
+                            <!--<p>游戏总局数:<i ng-bind="gameNum"></i></p>-->
+                        </div>
+                    </div>
+                </li>
+                <li class="j_user_fun_li text-left" style="padding: 20px 10px">
+                    <p class="title my_font3">充值</p>
+                    <p><i class="requiredTextTips"></i>账户<i ng-bind="money_name"></i>:<span ng-bind="balance" style="font-weight: bold;color: #ff0000;"></span></p>
+                    <i class="requiredTextTips">*</i>充值金额:<input ng-change="setMoney(0);" ng-model="pay_money" type="tel" maxlength="11">
+                </li>
+            </ul>
+            <!--保存-->
+            <div style="width: 100%;text-align: center;margin-top: 30px;" >
+                <button ng-click="startPay(userInfo.id);" class="btn btn-success" style="width: 50%;height: 45px;">充值</button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 70px;">
+
+    </div>
+</div>

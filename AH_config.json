@@ -1,0 +1,749 @@
+{
+    "state": 1,
+    "info": {
+        "title_name": "汤原麻将管理后台",
+        "subhead_name": "汤原麻将",
+        "login_title": "登录系统",
+        "login_logo": "image/head/1.png",
+        "header_logo": "image/logo_header.png",
+        "money_name": "房卡",
+        "socketUrl_alpha": "47.93.61.29:51000",
+        "socketUrl": "47.93.227.111:51000",
+        "statistic_pro_name": "wsw_X18",
+        "gameLoginUrl": "http://flfy58.cn/login/open/us.login.index.html?cId=47",
+        "gameLoginUrl_alpha": "http://www.aoh5.com/login/open/us.login.index.html?cId=47",
+        "serviceUrl_dj": "http://localhost/gm/GameGM_X18_demo.php",
+        "serviceUrl_alpha": "http://www.aoh5.com:8086/h5/php/GameGM_X18_alpha.php",
+        "serviceUrl": "http://tsgm.flfy58.cn:8086/php/GameGM_X18.php",
+        "serviceJavaUrl_dj": "http://192.168.1.11:8082/x18ClubServer/",
+        "serviceJavaUrl_alpha": "http://47.93.61.29:80/x18ClubServer/",
+        "serviceJavaUrl": "http://39.106.67.169:8080/x18ClubServer/",
+        "menu_info": {
+            "404": {
+                "name": "错误页面"
+            },
+            "console": {
+                "icon": "glyphicon glyphicon-user",
+                "name": "管理中心",
+                "bottomMenu": {
+                    "icon": "glyphicon glyphicon-user",
+                    "name": "管理中心"
+                }
+            },
+            "jurisdiction": {
+                "icon": "glyphicon glyphicon-knight",
+                "name": "权限管理"
+            },
+            "jurisdiction_list": {
+                "name": "大区代理列表"
+            },
+            "jurisdiction_list_seek": {
+                "name": "大区代理搜索"
+            },
+            "jurisdiction_info": {
+                "name": "大区代理详情"
+            },
+            "jurisdiction_add": {
+                "name": "添加大区代理"
+            },
+            "game": {
+                "icon": "glyphicon glyphicon-tower",
+                "name": "游戏管理"
+            },
+            "game_systemMessages": {
+                "name": "系统消息"
+            },
+            "game_feedback": {
+                "name": "玩家反馈"
+            },
+            "game_systemNotice": {
+                "name": "系统公告(跑马灯)"
+            },
+            "game_monitor": {
+                "name": "数据监测"
+            },
+            "game_onlineRoom": {
+                "name": "在线房间列表"
+            },
+            "game_onlineRoomSeek": {
+                "name": "在线房间列表搜索"
+            },
+            "player": {
+                "icon": "glyphicon glyphicon-globe",
+                "name": "玩家管理"
+            },
+            "player_list": {
+                "name": "玩家列表"
+            },
+            "player_list_seek": {
+                "name": "玩家搜索"
+            },
+            "player_userInfo": {
+                "name": "玩家详情"
+            },
+            "player_blacklist": {
+                "name": "黑名单"
+            },
+            "player_blacklist_seek": {
+                "name": "黑名单搜索"
+            },
+            "player_payRecord": {
+                "name": "充卡记录",
+                "bottomMenu": {
+                    "icon": "glyphicon glyphicon-list",
+                    "name": "充卡记录"
+                }
+            },
+            "player_payRecordSeek": {
+                "name": "充卡记录搜索"
+            },
+            "player_consumeRecord": {
+                "name": "消费记录"
+            },
+            "player_consumeRecordSeek": {
+                "name": "消费记录搜索"
+            },
+            "player_scoreRecord": {
+                "name": "战绩列表"
+            },
+            "player_scoreRecordSeek": {
+                "name": "战绩搜索"
+            },
+            "player_pay": {
+                "name": "玩家充卡",
+                "tips": "代理商给玩家充卡",
+                "bottomMenu": {
+                    "icon": "glyphicon glyphicon-plus",
+                    "name": "玩家充卡"
+                }
+            },
+            "agency": {
+                "icon": "glyphicon glyphicon-piggy-bank",
+                "name": "代理商管理"
+            },
+            "agency_list": {
+                "name": "代理商列表"
+            },
+            "agency_listSeek": {
+                "name": "代理商搜索"
+            },
+            "agency_userInfo": {
+                "name": "代理商详情"
+            },
+            "agency_setInfo": {
+                "name": "代理商信息修改"
+            },
+            "agency_add": {
+                "name": "代理商添加",
+                "bottomMenu": {
+                    "icon": "glyphicon glyphicon-piggy-bank",
+                    "name": "招募代理"
+                }
+            },
+            "agency_buyRecord": {
+                "name": "购买记录",
+                "tips": "上级代理给自己充卡的记录"
+            },
+            "agency_buyRecordSeek": {
+                "name": "购买记录搜索"
+            },
+            "agency_sellRecord": {
+                "name": "转账记录",
+                "tips": "出售给下级代理或玩家的记录",
+                "bottomMenu": {
+                    "icon": "glyphicon glyphicon-list",
+                    "name": "充卡记录"
+                }
+            },
+            "agency_sellRecordSeek": {
+                "name": "充卡记录搜索"
+            },
+            "agency_pay": {
+                "name": "充卡(获卡)",
+                "tips": "给下级代理充卡"
+            },
+            "agency_grade": {
+                "name": "等级变更"
+            },
+            "agency_reduce": {
+                "name": "扣除房卡"
+            },
+            "fling": {
+                "icon": "glyphicon glyphicon-transfer",
+                "name": "邀请码直冲"
+            },
+            "fling_bindingUserList": {
+                "name": "绑定玩家",
+                "tips": ""
+            },
+            "fling_manage": {
+                "name": "直冲管理",
+                "tips": ""
+            },
+            "fling_list": {
+                "name": "直冲明细",
+                "tips": ""
+            },
+            "fling_whitelist": {
+                "name": "直冲白名单",
+                "tips": ""
+            },
+            "fling_userAffiliation": {
+                "name": "归属管理",
+                "tips": ""
+            },
+            "fling_liftApplyFor": {
+                "name": "提现申请",
+                "tips": ""
+            },
+            "jerry": {
+                "icon": "glyphicon glyphicon-send",
+                "name": "俱乐部"
+            },
+            "jerry_index": {
+                "name": "我的俱乐部",
+                "bottomMenu": {
+                    "icon": "glyphicon glyphicon-send",
+                    "name": "俱乐部"
+                }
+            },
+            "jerry_add": {
+                "name": "创建俱乐部"
+            },
+            "jerry_userList": {
+                "name": "成员管理"
+            },
+            "jerry_pay": {
+                "name": "房卡管理"
+            },
+            "jerry_recordList": {
+                "name": "战绩查询"
+            },
+            "jerry_seek": {
+                "name": "俱乐部查询"
+            }
+        },
+        "IDLevel": {
+            "level1": {
+                "icon": "glyphicon glyphicon-tower",
+                "name": "玩家"
+            },
+            "level3": {
+                "icon": "glyphicon glyphicon-tower",
+                "name": "三级代理"
+            },
+            "level4": {
+                "icon": "glyphicon glyphicon-knight",
+                "name": "代理"
+            },
+            "level5": {
+                "icon": "glyphicon glyphicon-bishop",
+                "name": "S级代理"
+            },
+            "level6": {
+                "icon": "glyphicon glyphicon-pawn",
+                "name": "大区代理"
+            },
+            "level7": {
+                "icon": "glyphicon glyphicon-queen",
+                "name": "超级管理员"
+            },
+            "level8": {
+                "icon": "glyphicon glyphicon-king",
+                "name": "究极管理员"
+            }
+        },
+        "statistic": {
+            "operation_list": {
+                "例子": {
+                    "title": "标题",
+                    "name": "标签名",
+                    "color": "颜色标签id"
+                },
+                "khd_login_uv": {
+                    "title": "日活跃",
+                    "name": "login_UA",
+                    "color": 0
+                },
+                "khd_online_p": {
+                    "title": "在线人数",
+                    "name": "online_p",
+                    "color": 0
+                },
+                "khd_login": {
+                    "title": "登陆PV",
+                    "name": "login",
+                    "color": 0
+                },
+                "khd_share": {
+                    "title": "分享PV",
+                    "name": "u_share",
+                    "color": 0
+                },
+                "khd_a_pay": {
+                    "title": "玩家充值统计(张)",
+                    "name": "a_pay",
+                    "color": 1
+                },
+                "khd_a_buy": {
+                    "title": "代理购买统计(张)",
+                    "name": "a_buy",
+                    "color": 2
+                },
+                "u_cRoom": {
+                    "title": "房主模式(张)",
+                    "name": "u_consume",
+                    "color": 0
+                },
+                "d_cRoom": {
+                    "title": "代开模式(张)",
+                    "name": "d_consume",
+                    "color": 2
+                },
+                "j_cRoom": {
+                    "title": "俱乐部消费统计",
+                    "name": "j_consume",
+                    "color": 4
+                },
+                "fwl": {
+                    "title": "PV",
+                    "name": "login",
+                    "color": 0
+                },
+                "createRoom_fz": {
+                    "title": "房主模式",
+                    "name": "fang_room",
+                    "color": 0
+                },
+                "createRoom_dk": {
+                    "title": "代开模式",
+                    "name": "dai_room",
+                    "color": 3
+                },
+                "dissolveRoom": {
+                    "title": "解散房间",
+                    "name": "dissolveRoom",
+                    "color": 1
+                },
+                "createRoom_2quan": {
+                    "title": "2圈/8局",
+                    "name": "two_room_type",
+                    "color": 2
+                },
+                "createRoom_4quan": {
+                    "title": "4圈/16局",
+                    "name": "four_room_type",
+                    "color": 3
+                },
+                "createRoom_6quan": {
+                    "title": "6圈/24局",
+                    "name": "six_room_type",
+                    "color": 4
+                },
+                "jiesuan_s": {
+                    "title": "小结算",
+                    "name": "xjs",
+                    "color": 0
+                },
+                "jiesuan_m": {
+                    "title": "大结算",
+                    "name": "djs",
+                    "color": 2
+                },
+                "dpai_1": {
+                    "title": "<=0.1s",
+                    "name": "dapai",
+                    "children": "children1",
+                    "color": 0
+                },
+                "dpai_2": {
+                    "title": "<=0.5s",
+                    "name": "dapai",
+                    "children": "children2",
+                    "color": 2
+                },
+                "dpai_3": {
+                    "title": "<=1s",
+                    "name": "dapai",
+                    "children": "children3",
+                    "color": 3
+                },
+                "dpai_4": {
+                    "title": "<=3s",
+                    "name": "dapai",
+                    "children": "children4",
+                    "color": 4
+                },
+                "dpai_5": {
+                    "title": "<=5s",
+                    "name": "dapai",
+                    "children": "children5",
+                    "color": 3
+                },
+                "dpai_6": {
+                    "title": ">5s",
+                    "name": "dapai",
+                    "children": "children6",
+                    "color": 1
+                },
+                "fapai_1": {
+                    "title": "<=0.1s",
+                    "name": "fapai",
+                    "children": "children1",
+                    "color": 0
+                },
+                "fapai_2": {
+                    "title": "<=0.5s",
+                    "name": "fapai",
+                    "children": "children2",
+                    "color": 2
+                },
+                "fapai_3": {
+                    "title": "<=1s",
+                    "name": "fapai",
+                    "children": "children3",
+                    "color": 3
+                },
+                "fapai_4": {
+                    "title": "<=3s",
+                    "name": "fapai",
+                    "children": "children4",
+                    "color": 4
+                },
+                "fapai_5": {
+                    "title": "<=5s",
+                    "name": "fapai",
+                    "children": "children5",
+                    "color": 5
+                },
+                "fapai_6": {
+                    "title": ">5s",
+                    "name": "fapai",
+                    "children": "children6",
+                    "color": 1
+                },
+                "chi_1": {
+                    "title": "<=0.1s",
+                    "name": "chi",
+                    "children": "children1",
+                    "color": 0
+                },
+                "chi_2": {
+                    "title": "<=0.5s",
+                    "name": "chi",
+                    "children": "children2",
+                    "color": 2
+                },
+                "chi_3": {
+                    "title": "<=1s",
+                    "name": "chi",
+                    "children": "children3",
+                    "color": 3
+                },
+                "chi_4": {
+                    "title": "<=3s",
+                    "name": "chi",
+                    "children": "children4",
+                    "color": 4
+                },
+                "chi_5": {
+                    "title": "<=5s",
+                    "name": "chi",
+                    "children": "children5",
+                    "color": 5
+                },
+                "chi_6": {
+                    "title": ">5s",
+                    "name": "chi",
+                    "children": "children6",
+                    "color": 1
+                },
+                "peng_1": {
+                    "title": "<=0.1s",
+                    "name": "peng",
+                    "children": "children1",
+                    "color": 0
+                },
+                "peng_2": {
+                    "title": "<=0.5s",
+                    "name": "peng",
+                    "children": "children2",
+                    "color": 2
+                },
+                "peng_3": {
+                    "title": "<=1s",
+                    "name": "peng",
+                    "children": "children3",
+                    "color": 3
+                },
+                "peng_4": {
+                    "title": "<=3s",
+                    "name": "peng",
+                    "children": "children4",
+                    "color": 4
+                },
+                "peng_5": {
+                    "title": "<=5s",
+                    "name": "peng",
+                    "children": "children5",
+                    "color": 5
+                },
+                "peng_6": {
+                    "title": ">5s",
+                    "name": "peng",
+                    "children": "children6",
+                    "color": 1
+                },
+                "gang_1": {
+                    "title": "<=0.1s",
+                    "name": "gang",
+                    "children": "children1",
+                    "color": 0
+                },
+                "gang_2": {
+                    "title": "<=0.5s",
+                    "name": "gang",
+                    "children": "children2",
+                    "color": 2
+                },
+                "gang_3": {
+                    "title": "<=1s",
+                    "name": "gang",
+                    "children": "children3",
+                    "color": 3
+                },
+                "gang_4": {
+                    "title": "<=3s",
+                    "name": "gang",
+                    "children": "children5",
+                    "color": 4
+                },
+                "gang_5": {
+                    "title": "<=5s",
+                    "name": "gang",
+                    "children": "children5",
+                    "color": 5
+                },
+                "gang_6": {
+                    "title": ">5s",
+                    "name": "gang",
+                    "children": "children6",
+                    "color": 1
+                },
+                "xjs_1": {
+                    "title": "<=5分钟",
+                    "name": "xjs_time",
+                    "children": "children1",
+                    "color": 0
+                },
+                "xjs_2": {
+                    "title": "<=10分钟",
+                    "name": "xjs_time",
+                    "children": "children2",
+                    "color": 5
+                },
+                "xjs_3": {
+                    "title": "<=15分钟",
+                    "name": "xjs_time",
+                    "children": "children3",
+                    "color": 2
+                },
+                "xjs_4": {
+                    "title": "<=20分钟",
+                    "name": "xjs_time",
+                    "children": "children4",
+                    "color": 3
+                },
+                "xjs_5": {
+                    "title": "<=30分钟",
+                    "name": "xjs_time",
+                    "children": "children5",
+                    "color": 4
+                },
+                "xjs_6": {
+                    "title": ">=31分钟",
+                    "name": "xjs_time",
+                    "children": "children6",
+                    "color": 1
+                },
+                "djs_1": {
+                    "title": "<=20分钟",
+                    "name": "djs_time",
+                    "children": "children1",
+                    "color": 0
+                },
+                "djs_2": {
+                    "title": "<=30分钟",
+                    "name": "djs_time",
+                    "children": "children2",
+                    "color": 2
+                },
+                "djs_3": {
+                    "title": "<=40分钟",
+                    "name": "djs_time",
+                    "children": "children3",
+                    "color": 3
+                },
+                "djs_4": {
+                    "title": "<=60分钟",
+                    "name": "djs_time",
+                    "children": "children4",
+                    "color": 4
+                },
+                "djs_5": {
+                    "title": "<=80分钟",
+                    "name": "djs_time",
+                    "children": "children5",
+                    "color": 3
+                },
+                "djs_6": {
+                    "title": ">80分钟",
+                    "name": "djs_time",
+                    "children": "children6",
+                    "color": 1
+                },
+                "djs_ju1": {
+                    "title": "<=2局",
+                    "name": "every_djx_time",
+                    "children": "children1",
+                    "color": 1
+                },
+                "djs_ju2": {
+                    "title": "<=4局",
+                    "name": "every_djx_time",
+                    "children": "children2",
+                    "color": 3
+                },
+                "djs_ju3": {
+                    "title": "<=6局",
+                    "name": "every_djx_time",
+                    "children": "children3",
+                    "color": 0
+                },
+                "djs_ju4": {
+                    "title": "<=8局",
+                    "name": "every_djx_time",
+                    "children": "children4",
+                    "color": 2
+                },
+                "djs_ju5": {
+                    "title": "<=12局",
+                    "name": "every_djx_time",
+                    "children": "children5",
+                    "color": 5
+                },
+                "djs_ju6": {
+                    "title": ">=13局",
+                    "name": "every_djx_time",
+                    "children": "children6",
+                    "color": 7
+                }
+            },
+            "color_list": [
+                {
+                    "back": [
+                        "rgba(0,102,204,.3)"
+                    ],
+                    "border": [
+                        "rgba(0,102,204,1)"
+                    ],
+                    "name": "蓝色-0"
+                },
+                {
+                    "back": [
+                        "rgba(255,0,0,.3)"
+                    ],
+                    "border": [
+                        "rgba(255,0,0,1)"
+                    ],
+                    "name": "红色-1"
+                },
+                {
+                    "back": [
+                        "rgba(51,153,51,.3)"
+                    ],
+                    "border": [
+                        "rgba(51,153,51,1)"
+                    ],
+                    "name": "绿色-2"
+                },
+                {
+                    "back": [
+                        "rgba(255,153,0,.3)"
+                    ],
+                    "border": [
+                        "rgba(255,153,0,1)"
+                    ],
+                    "name": "橙色-3"
+                },
+                {
+                    "back": [
+                        "rgba(0,0,0,.3)"
+                    ],
+                    "border": [
+                        "rgba(0,0,0,1)"
+                    ],
+                    "name": "黑色-4"
+                },
+                {
+                    "back": [
+                        "rgba(153,51,255,.3)"
+                    ],
+                    "border": [
+                        "rgba(153,51,255,1)"
+                    ],
+                    "name": "紫色-5"
+                },
+                {
+                    "back": [
+                        "rgba(102,51,102,.3)"
+                    ],
+                    "border": [
+                        "rgba(102,51,102,1)"
+                    ],
+                    "name": "暗紫色-6"
+                },
+                {
+                    "back": [
+                        "rgba(255,0,255,.3)"
+                    ],
+                    "border": [
+                        "rgba(255,0,255,1)"
+                    ],
+                    "name": "粉色-7"
+                }
+            ]
+        },
+        "message_list": {
+            "1": "今日已提现",
+            "2": "未达到最低提现额度",
+            "3": "操作失败，请稍后再试",
+            "4": "含有非法字符",
+            "5": "该俱乐部已存在，换个名称吧",
+            "6": "无法创建更多俱乐部",
+            "7": "房卡不足，无法创建俱乐部",
+            "8": "房间预警必须小于房卡库存值",
+            "9": "房卡数不足",
+            "10": "该用户的俱乐部已经三个了哟",
+            "11": "俱乐部成员已满，无法加入",
+            "12": "弄啥咧",
+            "13": "参数有null~",
+            "14": "用户不存在",
+            "15": "该代理不存在，请核实",
+            "16": "权限不足",
+            "17": "不存在该代理，请核实",
+            "18": "支付出现问题，请联系客服",
+            "19": "该玩家还未绑定代理",
+            "20": "该玩家不是创建者",
+            "21": "该俱乐部不存在",
+            "25": "房卡不足1000，无法创建俱乐部"
+        },
+        "versionInfo": {
+            "v": "4.0.3",
+            "proCode": "AH2.0_outBoxGM",
+            "releaseNum": 121,
+            "newReleaseTime": "2018-06-20T07:47:38.438Z",
+            "AH_develop": ""
+        }
+    }
+}

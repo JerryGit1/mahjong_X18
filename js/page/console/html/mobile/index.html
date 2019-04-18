@@ -1,0 +1,287 @@
+<div ng-controller="consoleIndexCtrl" class="GM_back_3" style="margin: 0px;">
+    <!--导航栏-->
+    <router-nav class="pc_add">
+
+    </router-nav>
+    <!--模块信息-->
+    <div class="console_module1_div row" style="height: 100%;padding: 0;">
+        <!--用户信息-->
+        <div class=" col-xs-12 col-sm-4"  style="margin-top:1rem;background: #fff;">
+            <div style="height: 80px;padding: 0 5px;">
+                <!--基础-->
+                <div class="console_model_1 row">
+                    <!--头像-->
+                    <img  style="float:left;width: 60px;height:60px;border-radius: 50%;margin: 10px;border: 1px solid #ccc;" ng-src="{{userHead}}">
+                    <div style="float: left;margin-top: 5px;">
+                        <!--用户名-->
+                        <p ng-bind="userName" class="my_font4" style="margin: 10px 0 0 0;color: #000;"></p>
+                        <!--ID-->
+                        <p style="margin:0 0 2px 0;height: 20px;color: #666;">
+                            <span data-toggle="console_tooltip" data-placement="right" title="用户ID">
+                                ID <span class="text-warning">(邀请码)</span> :<span ng-bind="userId"></span>
+                            </span>
+                        </p>
+                    </div>
+                    <!--身份-->
+                    <div style="float:right;color: #fff;line-height: 30px;min-width:76px;height: 80px;margin-right: 10px;margin-top:10px;">
+                        <span class="label label-info" style="font-size: 11px;padding: 5px;margin-left:8px;" ng-bind="levelInfo.name"></span>
+                    </div>
+                </div>
+                <!--分割线-->
+                <hr class="console_btn_line">
+                <!--数据信息-->
+                <div class="row text-center" style="margin-top: 5px;">
+                    <div class="col-xs-4">
+                        <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 ">{{money?money:0}}</p>
+                        <p style="color: #999;" class="my_font2">{{money_name}}</p>
+                    </div>
+                    <div class="col-xs-4" ng-click="skipPage(2);">
+                        <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 ">{{buyMoney?buyMoney:0}}</p>
+                        <p style="color: #999;" class="my_font2">总购买</p>
+                    </div>
+                    <div class="col-xs-4" ng-click="skipPage(1);">
+                        <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span>{{sell_agency_money+sell_player_money?sell_agency_money+sell_player_money:0}}</span></p>
+                        <p style="color: #999;" class="my_font2">总出售</p>
+                    </div>
+                </div>
+                <!--<div>-->
+                    <!--<a href="{{gameLoginUrl}}" class="mobile_add" style="position: absolute;right: 5px;bottom: 5px;text-decoration: underline;color: #000;">返回游戏</a>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+        <!--代理看到信息-->
+        <div id="daili_div" class="col-xs-12 col-sm-8 my_font3 hide" style="background: #fff;margin-top: 10px;padding: 0;">
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(16);">
+                <i class="glyphicon glyphicon-log-in" style="background-color:#5cb85c"></i>出售记录
+                <tips>给玩家充值信息</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(2);">
+                <i class="glyphicon glyphicon-log-out" style="background-color:#5cb85c"></i>购买记录
+                <tips>采购{{money_name}}记录</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <!--<div style="height:10px;" class="GM_back_3"></div>-->
+            <hr class="console_btn_line">
+            <div ng-show="add_fling_btn">
+                <div class="console_btn" ng-click="skipPage(13);">
+                    <i class="glyphicon glyphicon-indent-left"></i>直冲明细
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(14);">
+                    <i class="glyphicon glyphicon-cloud-upload"></i>已绑定用户
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+            </div>
+        </div>
+
+        <!--S代理看到信息-->
+        <div id="S_daili_div" class="col-xs-12 col-sm-8 my_font3 hide" style="background: #fff;margin-top: 10px;padding: 0;">
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(1);">
+                <i class="glyphicon glyphicon-log-in" style="background-color:#5cb85c"></i>转账记录
+                <tips>给代理的充值信息</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(2);">
+                <i class="glyphicon glyphicon-log-out" style="background-color:#5cb85c"></i>购买记录
+                <tips>采购{{money_name}}记录</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div style="height:10px;" class="GM_back_3"></div>
+            <div class="console_btn" ng-click="skipPage(18);">
+                <i class="glyphicon glyphicon-send" style="background-color:#0D90D2"></i>俱乐部
+                <tips>俱乐部</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div ng-show="add_fling_btn">
+                <div class="console_btn" ng-click="skipPage(13);">
+                    <i class="glyphicon glyphicon-indent-left"></i>直冲明细
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(14);">
+                    <i class="glyphicon glyphicon-cloud-upload"></i>已绑定用户
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+            </div>
+        </div>
+
+        <!--大区管理员看到信息-->
+        <div id="gly_div" class="col-xs-12 col-sm-8 my_font3 hide" style="background: #fff;margin-top: 10px;padding: 0;">
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(1);">
+                <i class="glyphicon glyphicon-log-in" style="background-color:#5cb85c"></i>转账记录
+                <tips>给代理充值信息</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(2);">
+                <i class="glyphicon glyphicon-log-out" style="background-color:#5cb85c"></i>购买记录
+                <tips>采购{{money_name}}记录</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(5);">
+                <i class="glyphicon glyphicon-heart-empty" style="background-color:#5cb85c"></i>房间管理
+                <tips>实时在线房间列表</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(4);">
+                <i class="glyphicon glyphicon-piggy-bank" style="background: #5cb85c;"></i>代理管理
+                <tips>充值,转账记录</tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div style="width:100%;height:10px;background: #F0EFF5;"></div>
+            <div>
+                <!--俱乐部管理-->
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(17);" ng-show="jerry_is_show">
+                    <i class="glyphicon glyphicon-edit"></i>俱乐部管理
+                    <tips>设置俱乐部包月/包周</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(19);">
+                    <i class="glyphicon glyphicon-resize-small"></i>等级变更
+                    <tips>s级与小代理的等级互换</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(20);">
+                    <i class="glyphicon glyphicon-zoom-out"></i>扣除{{money_name}}
+                    <tips>充错或特殊情况时扣除对方{{money_name}}</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+            </div>
+
+
+
+
+            <!--邀请码直冲-->
+            <hr class="console_btn_line">
+            <div ng-show="add_fling_btn">
+                <div class="console_btn" ng-click="skipPage(9);">
+                    <i class="glyphicon glyphicon-resize-horizontal"></i>直冲管理
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(10);">
+                    <i class="glyphicon glyphicon-edit"></i>白名单
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(11);">
+                    <i class="glyphicon glyphicon-home"></i>用户归属管理
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+                <hr class="console_btn_line">
+                <div class="console_btn" ng-click="skipPage(15);">
+                    <i class="glyphicon glyphicon-lock"></i>提现申请
+                    <tips>邀请码直冲</tips>
+                    <label class="glyphicon glyphicon-menu-right"></label>
+                </div>
+            </div>
+        </div>
+        <!--返回游戏-->
+        <div  class="col-xs-12 col-sm-8 my_font3" style="background: #fff;margin-top: 10px;padding: 0;">
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(7);">
+                <i class="glyphicon glyphicon-queen" style="background: #FFB400;"></i>返回游戏
+                <tips></tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+            <hr class="console_btn_line">
+            <div class="console_btn" ng-click="skipPage(8);">
+                <i class="glyphicon glyphicon-off" style="background: #D8534F;"></i>退出登录
+                <tips></tips>
+                <label class="glyphicon glyphicon-menu-right"></label>
+            </div>
+        </div>
+        <!--超管可以看到的信息-->
+        <div id="cg_div" class="col-xs-12 col-sm-8 hide" style="margin-top: 10px;background: #fff;">
+            <hr class="console_btn_line">
+            <div class="console_model_1 row">
+                <!--用户-->
+                <div class="col-xs-12 col-sm-4" >
+                    <div class="user_info_1">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span ng-bind="maxUserNum"></span>
+                        <p class="my_font2 console_module_tab">总用户</p>
+                    </div>
+
+                </div>
+                <!--新增用户-->
+                <div class="col-xs-12 col-sm-4">
+                    <div class="user_info_2">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span ng-bind="weekNewAddUserNum"></span>
+                        <p class="my_font2 console_module_tab">本周新增</p>
+                    </div>
+
+                </div>
+                <!--新增用户-->
+                <div class="col-xs-12 col-sm-4">
+                    <div class="user_info_3">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span ng-bind="monthNewAddUserNum"></span>
+                        <p class="my_font2 console_module_tab">本月新增</p>
+                    </div>
+                </div>
+                <!--玩家总充值-->
+                <div class="col-xs-12 col-sm-8" >
+                    <div class="user_info_4">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        <span><span ng-bind="adminPayTotalMoney"></span>/<span ng-bind="userPayTotalMoney"></span></span>
+                        <p class="my_font2 console_module_tab">总投入{{money_name}} / 玩家总充值{{money_name}}</p>
+                    </div>
+                </div>
+                <!--玩家总消费-->
+                <div class="col-xs-12 col-sm-4">
+                    <div class="user_info_5">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        <span ng-bind="userConsumeTotalMoney"></span>
+                        <p class="my_font2 console_module_tab">玩家总消费</p>
+                    </div>
+                </div>
+                <!--最近登录时间-->
+                <div class="col-xs-12 col-sm-4 mobile_add">
+                    <div class="user_info_3">
+                        <i class="glyphicon glyphicon-home"></i>
+                        <span ng-bind="newTime" style="font-size: 15px;"></span>
+                        <p class="my_font2 console_module_tab">最近登录时间</p>
+                    </div>
+                </div>
+                <!--最近登录IP-->
+                <div class="col-xs-12 col-sm-4 mobile_add" style="margin-bottom: 20px;">
+                    <div class="user_info_2">
+                        <i class="glyphicon glyphicon-home"></i>
+                        <span ng-bind="loginIP" style="font-size: 15px;"></span>
+                        <p class="my_font2 console_module_tab">最近登录IP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div style="height:200px;"></div>
+</div>

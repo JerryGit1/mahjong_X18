@@ -1,0 +1,56 @@
+<div ng-controller="fling_list" class="GM_back_3">
+    <!--直冲明细-->
+    <!--基础信息-->
+    <div>
+        <!--今日直充房卡数额-->
+        <!--昨日直冲房卡数额-->
+        <!--今日可提现数额-->
+        <!--申请提现按钮-->
+        <!--数据信息-->
+        <div class="row text-center GM_back_4" style="padding-top: 15px;">
+            <div class="col-xs-3">
+                <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingWidth_data.today"></span>张</p>
+                <p style="color: #999;" class="my_font2">今日直充</p>
+            </div>
+            <div class="col-xs-3">
+                <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingWidth_data.yesterday"></span>张</p>
+                <p style="color: #999;" class="my_font2">昨日直冲</p>
+            </div>
+            <div class="col-xs-3">
+                <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingWidth_data.canCash"></span>元</p>
+                <p style="color: #999;min-width:67px;" class="my_font2">可提现金额</p>
+            </div>
+            <div class="col-xs-3" style="padding:0;">
+                <button ng-show="sow" ng-click="trueMoney(flingWidth_data.canCash);" class="btn btn-success btn-xs" style="height:30px;margin-top:5px;margin-right:10px;">申请提现</button>
+                <button ng-hide="sow" style="padding:2px;margin-top:5px;margin-right:10px;height:30px;background: #ccc;border:none;" type="button" class="btn btn-lg btn-primary my_font3" disabled="disabled">满100提现</button>
+            </div>
+        </div>
+    </div>
+    <!--分割线-->
+    <hr class="console_btn_line">
+
+    <!--列表-->
+    <p class="my_font3" style="margin:10px 0 0 15px;color:#79787E;font-weight: 800;">直充列表</p>
+        <table class="table table-striped" style="border:1px solid #ccc;margin-top:5px;">
+            <tr class="text-center" style="font-weight: 800;">
+                <td>
+                    用户ID
+                </td>
+                <td style="min-width:46px;">金额</td>
+                <td style="min-width:46px;">{{money_name}}</td>
+                <td>时间</td>
+                <td>分成</td>
+            </tr>
+            <tr ng-repeat="info in flingList_data" style="text-align: center;">
+                <td>
+                    {{info.openId}}
+                </td>
+                <td ng-bind="info.openBuy"></td>
+                <td ng-bind="info.openCard"></td>
+                <td ng-bind="info.openTime"></td>
+                <td ng-bind="info.openGet"></td>
+            </tr>
+        </table>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

@@ -1,0 +1,102 @@
+<!--唐僧洗头爱飘柔  --丁杰 2017/11/24-->
+<div ng-controller="jerry_recordListCtrl" class="GM_back_3">
+    <!--抬头-->
+    <div class="row text-center GM_back_4" style="padding-top:15px;background:#fff;">
+        <div class="col-xs-4">
+            <p style="color: #000;margin: 0;font-weight: bold;" class="my_font3 "><span ng-bind="recordList_data.activeNum"></span></p>
+            <p style="color: #000;" class="my_font2">今日活跃</p>
+        </div>
+        <div class="col-xs-4" ng-click="skipPage(2);">
+            <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="recordList_data.currNum"></span></p>
+            <p style="color: #000;" class="my_font2">今日局数</p>
+        </div>
+        <div class="col-xs-4" ng-click="skipPage(1);">
+            <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-show="page1">0</span></p>
+            <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="yesterdayList_data.allHeXiao" ng-show="page2"></span></p>
+            <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="agoList_data.allHeXiao" ng-show="page3"></span></p>
+            <p style="color: #000;" class="my_font2" ng-show="page1">今日核销</p>
+            <p style="color: #000;" class="my_font2" ng-show="page2">昨日核销</p>
+            <p style="color: #000;" class="my_font2" ng-show="page3">前日核销</p>
+        </div>
+    </div>
+    <hr style="margin:0 0 10px 0;">
+<!--今日昨日前日-->
+    <div class="btn-group btn-group-justified" style="margin-bottom:10px;">
+        <div class="btn-group" ng-click="show(1)">
+            <div type="button" class="{{page1?'atv':''}}" style="padding-bottom:10px;text-align: center;color:#5B5A5A;font-size: 15px;font-weight: 500;">今日</div>
+        </div>
+        <div class="btn-group" ng-click="show(2)">
+            <div type="button" class="{{page2?'atv':''}}" style="padding-bottom:10px;text-align: center;color:#5B5A5A;font-size: 15px;font-weight: 500;">昨日</div>
+        </div>
+        <div class="btn-group" ng-click="show(3)">
+            <div type="button" class="{{page3?'atv':''}}" style="padding-bottom:10px;text-align: center;color:#5B5A5A;font-size: 15px;font-weight: 500;">前日</div>
+        </div>
+    </div>
+<!--战绩查询列表-->
+
+    <!--今日-->
+    <div ng-show="page1">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding-left:10px;height: 62px;" ng-repeat="info in recordList_data.users">
+                <div style="float:left;width:42px;height:42px;">
+                    <img ng-src="{{info.userImg}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+                </div>
+                <div style="float:left;margin: 0 0 0 10px;">
+                    <p class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.userName)}}</p>
+                    <p class="my_font2" style="margin-bottom:0;color:#9E9E9E;">总成绩: <span ng-bind="info.score"></span></p>
+                </div>
+                <div style="float:left;">
+                    <p style="margin:12px 0 0 20px;">圈数: <span ng-bind="info.juNum?info.juNum:0"></span></p>
+                </div>
+                <div style="float:right;">
+                    <!--<button class="btn btn-default" type="submit" style="margin-top:5px;background: #95BD44;color:#fff;" ng-click="changeOff(info,info.heXiaoStatus,info.userId);" ng-hide="info.heXiaoStatus">核销</button>-->
+                    <!--<p style="color:#A3A3A3;margin-top:10px;margin-right:6px;">计算中</p>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--昨日-->
+    <div ng-show="page2">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding-left:10px;height: 62px;" ng-repeat="info in yesterdayList_data.users">
+                <div style="float:left;width:42px;height:42px;">
+                    <img ng-src="{{info.userImg}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+                </div>
+                <div style="float:left;margin: 0 0 0 10px;">
+                    <p class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.userName)}}</p>
+                    <p class="my_font2" style="margin-bottom:0;color:#9E9E9E;">总成绩: <span ng-bind="info.score"></span></p>
+                </div>
+                <div style="float:left;">
+                    <p style="margin:12px 0 0 20px;">圈数: <span ng-bind="info.juNum?info.juNum:0"></span></p>
+                </div>
+                <div style="float:right;">
+                    <button class="btn btn-default" type="submit" style="margin-top:5px;" ng-click="yesterday_off(info,info.heXiaoStatus,info.userId);" ng-hide="info.heXiaoStatus">核销</button>
+                    <p style="color:#A3A3A3;margin-top:10px;margin-right:7px;" ng-show="info.heXiaoStatus">已核销</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--前日-->
+    <div ng-show="page3">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding-left:10px;height: 62px;" ng-repeat="info in agoList_data.users">
+                <div style="float:left;width:42px;height:42px;">
+                    <img ng-src="{{info.userImg}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+                </div>
+                <div style="float:left;margin: 0 0 0 10px;">
+                    <p class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.userName)}}</p>
+                    <p class="my_font2" style="margin-bottom:0;color:#9E9E9E;">总成绩: <span ng-bind="info.score"></span></p>
+                </div>
+                <div style="float:left;">
+                    <p style="margin:12px 0 0 20px;">圈数: <span ng-bind="info.juNum?info.juNum:0"></span></p>
+                </div>
+                <div style="float:right;">
+                    <button class="btn btn-default" type="submit" style="margin-top:5px;" ng-click="intraday_off(info,info.heXiaoStatus,info.userId);" ng-hide="info.heXiaoStatus">核销</button>
+                    <p style="color:#A3A3A3;margin-top:10px;margin-right:7px;" ng-show="info.heXiaoStatus">已核销</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">做人留一线---------------日后好相见</p>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">核销规则：圈数 / 2</p>
+</div>

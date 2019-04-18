@@ -1,0 +1,41 @@
+<div ng-controller="agency_payCtrl" class="GM_back_3">
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--管理员详情-->
+    <div class="j_user_module">
+        <img src="image/p_title.png">
+        <div>
+            <ul class="j_user_fun_ul">
+                <li class="j_user_fun_li text-left" style="margin-bottom: 0;">
+                    <p class="title my_font3">代理商信息</p>
+                    <div class="text-left row">
+                        <!--头像-->
+                        <div  class="text-center col-xs-3">
+                            <img ng-src="{{userInfo.head?userInfo.head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                            <!--<button ng-click="lookUserInfo()" class="btn btn-primary" style="padding: 5px 10px;margin-top: 10px;">详情</button>-->
+                        </div>
+                        <div class="col-xs-8" style="display: inline-block">
+                            <h4 script="col">
+                                <span ng-bind="userInfo.userName"></span>
+                            </h4>
+                            <p class="text-muted" style="margin: 5px 0 0 0">ID:<span ng-bind="userInfo.id"></span></p>
+                            <p class="text-muted" style="margin:0"><span ng-bind="money_name"></span> : <span  style="font-weight: bold;color: #ff0000;" ng-bind="userInfo.money"></span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="j_user_fun_li text-left" style="padding-top:15px;margin-bottom: 0px;">
+                    <p class="title my_font3">充值</p>
+                    <p><span class="requiredTextTips"></span>您的账户<span ng-bind="money_name"></span> : <span ng-bind="balance" style="font-weight: bold;color: #ff0000;"></span></p>
+                    <span class="requiredTextTips">*</span>充值<span ng-bind="money_name"></span>
+                    <div class="text-center" style="margin-top: 5px;">
+                        <button ng-click="setMoney(-1)" class="glyphicon glyphicon-minus btn btn-success" style="margin-top: -5px;"></button>
+                        <input class="text-center" ng-change="setMoney(0)" ng-model="pay_money" type="tel" maxlength="11"
+                               style="width:40%;border-radius: 3px;line-height: 32px;padding: 0;border: 1px solid #449d44">
+                        <button ng-click="setMoney(1)" class="glyphicon glyphicon-plus btn btn-success" style="margin-top: -5px;"></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button ng-click="startPay();" class="btn btn-success " style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">充值</button>
+</div>

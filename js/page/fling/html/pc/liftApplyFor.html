@@ -1,0 +1,75 @@
+<div ng-controller="fling_liftApplyFor">
+    <!--提现申请-->
+    <router-nav></router-nav>
+    <!--列表-->
+    <div class="btn-group" role="group" style="margin:0 0 20px 30px;">
+        <button type="button" class="btn btn-default {{page1?'sty':''}}" style="width:100px;" ng-click="show(1)">待审批</button>
+        <button type="button" class="btn btn-default {{page2?'sty':''}}" style="width:100px;" ng-click="show(2)">已审批</button>
+    </div>
+    <table class="table my_table" style="table-layout:fixed;" ng-show="page1">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width:50px;border-bottom-width:0;text-align:center;">序号</th>
+            <th style="width:150px;border-bottom-width:0;">个人信息</th>
+            <th style="width: 150px;border-bottom-width:0;">申请金额</th>
+            <th style="width: 150px;border-bottom-width:0;">申请时间</th>
+            <th style="width: 150px;border-bottom-width:0;">操作</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in stayCheck_data.cashs" >
+            <!--计算序号--><!--每页数量*当前页-每页数量+1+$index-->
+            <td class="text-center" ng-bind="page_num*current_page-page_num+1+$index">1</td>
+            <td style="display:flex;">
+                <div style="float:left;box-flex:1;">
+                    <img class="p_user_head " ng-src="{{info.openHead?info.openHead:'image/head/2.png'}}">
+                </div>
+                <div style="float:left;margin:5px 0 0 20px;">
+                    <p class="text-primary my_font3" style="box-flex:2;font-weight: bold;margin:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.openName?info.openName:"")}}</p>
+                    ID:<span ng-bind="info.openId"></span>
+                </div>
+            </td>
+            <!--<td ng-bind="info.openId"></td>-->
+            <td ng-bind="info.openMoney" style="margin:auto;"></td>
+            <td ng-bind="info.openTime"></td>
+            <td class="table_btn_tool" style="vertical-align:middle;">
+                <button class="btn btn-info" type="submit" style="margin-top:5px;" ng-click="consent(info.openCode);">同意</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table my_table" style="table-layout:fixed;" ng-show="page2">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width:50px;border-bottom-width:0;text-align:center;">序号</th>
+            <th style="width:150px;border-bottom-width:0;">个人信息</th>
+            <th style="width: 150px;border-bottom-width:0;">申请金额</th>
+            <th style="width: 150px;border-bottom-width:0;">申请时间</th>
+            <th style="width: 150px;border-bottom-width:0;">操作</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in thenCheck_data.cashs" >
+            <!--计算序号-->
+            <td class="text-center" ng-bind="page_num*current_page-page_num+1+$index">1</td>
+            <td style="display:flex;">
+                <div style="float:left;box-flex:1;">
+                    <img class="p_user_head " ng-src="{{info.openHead?info.openHead:'image/head/2.png'}}">
+                </div>
+                <div style="float:left;margin:5px 0 0 20px;">
+                    <p class="text-primary my_font3" style="box-flex:2;font-weight: bold;margin:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.openName?info.openName:"")}}</p>
+                    ID:<span ng-bind="info.openId"></span>
+                </div>
+            </td>
+            <!--<td ng-bind="info.openId"></td>-->
+            <td ng-bind="info.openMoney" style="margin:auto;"></td>
+            <td ng-bind="info.openTime"></td>
+            <td class="table_btn_tool" style="vertical-align:middle;">
+                <p style="color:#A3A3A3;margin-top:10px;padding-left:5px;">已同意</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

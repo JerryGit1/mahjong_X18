@@ -1,0 +1,197 @@
+/*用户信息*/
+.console_userDiv{
+    height: 280px;
+    margin: 0 1% 1% 0;
+    background: #f37b53;
+    color: #fff;
+}
+/*模板*/
+.console_module1_div{
+    height: auto;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.console_module1_user_div{
+    height: 266px;
+}
+.console_model_1>div{
+    padding: 3px;
+}
+.console_model_1>div>div{
+    height: 130px;
+    color: #fff;
+    padding:0 10px;
+    position: relative;
+}
+.console_model_1 i{
+    font-size: 50px;
+    margin-top: 20px;
+}
+.console_model_1>div>div>span{
+    font-size: 30px;
+    position: absolute;
+    right:10px;
+    margin-top: 30px;
+    font-weight:normal;
+}
+.console_module_tab{
+    margin:0;
+    position: absolute;
+    bottom: 5px;
+}
+
+/*统计信息*/
+.widget {
+    background: #fff;
+    margin-bottom: 20px;
+    margin-top: 0;
+    border: 1px solid #404040;
+    min-height: 350px;
+}
+.widget-title {
+    background: #404040;
+    height: 36px;
+    color: #fff;
+}
+.widget-title > h4 {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 11px 10px 15px;
+    line-height: 12px;
+    margin: 0;
+}
+.widget-title > h4 i {
+    font-size: 14px;
+    margin-right: 2px;
+}
+.widget-body {
+    padding: 5px;
+    /*height: 320px;*/
+}
+/*颜色1*/
+.widget.green {
+    border: 1px solid #74B749;
+}
+.widget.green .widget-title {
+    background: #74B749;
+}
+/*颜色2*/
+.widget.orange {
+    border: 1px solid #F37B53;
+}
+.widget.orange .widget-title {
+    background: #F37B53;
+}
+/*颜色4*/
+.widget.blue {
+    border: 1px solid #4A8BC2;
+}
+.widget.blue .widget-title {
+    background: #4A8BC2;
+}
+/*右侧工具*/
+.widget .tools{
+    float: right;
+    margin: 2px 0 0;
+    padding: 6px 13px 6px 10px;
+    color: #fff;
+    cursor: pointer;
+
+}
+.widget .tools>i{
+    padding: 0 5px;
+}
+
+.user_info_1{
+    background: #FFB400;
+}
+.user_info_2{
+    background: #959801;
+}
+.user_info_3{
+    background: #ab8465;
+}
+.user_info_4{
+    background: #74B749;
+}
+.user_info_5{
+    background: #de577b;
+}
+@media (max-width: 768px){
+    .console_userDiv{
+        width: 100%;
+        height:200px;
+    }
+    .console_model_1 i{
+        font-size: 25px;
+        margin-top: 7px;
+    }
+    .console_model_1>div>div{
+        height: 55px;
+        color: #fff;
+        padding:0 10px;
+        position: relative;
+    }
+    .console_model_1>div>div>span{
+        font-size: 20px;
+        position: absolute;
+        right:10px;
+        line-height: 55px;
+        margin-top: 0;
+        font-weight:normal;
+    }
+    .console_module_tab{
+        margin:0;
+        position: absolute;
+        bottom: 2px;
+        font-size: 11px;
+        color: #eee;
+    }
+    .console_module1_user_div{
+        height: 170px;
+    }
+    /*按钮*/
+    .console_btn{
+        height: 45px;
+        background: #fff;
+        color: #000;
+        line-height: 45px;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+    .console_btn>i{
+        background: #0e90d2;
+        padding: 5px;
+        color: #fff;
+        margin-right: 10px;
+    }
+    .console_btn_line{
+        margin:0;
+        width: 100%;
+        height: 0px;
+        font-size: 0;
+    }
+    .console_btn>tips{
+        font-size: 11px;
+        color: #ccc;
+        margin-left: 5px;
+    }
+    .console_btn>label{
+        float: right;
+        line-height: 45px;
+        color: #999;
+    }
+    .console_btn:active{
+        background: #eee;
+    }
+}
+
+
+
+
+
+
+
+

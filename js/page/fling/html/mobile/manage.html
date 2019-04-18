@@ -1,0 +1,110 @@
+<div ng-controller="fling_manage">
+    <!--直冲管理-->
+    <p class="my_font3" style="padding: 4px;margin:10px 0 0 10px;color:#79787E;font-weight: 800;">
+        直冲数据
+    </p>
+    <!--基础信息-->
+    <div class="table_fling_div" style="margin-top:0;">
+        <div style="padding: 2%">
+            <!--扣量比例调整-->
+            <div class="row text-center" style="margin-top: 15px;">
+                <div class="col-xs-3">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.todayAllCount"></span></p>
+                    <p style="color: #999;" class="my_font1">今日订单数</p>
+                </div>
+                <div class="col-xs-3" ng-click="skipPage(2);">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.todayAllKouCount"></span></p>
+                    <p style="color: #999;" class="my_font1">今日扣量数</p>
+                </div>
+                <div class="col-xs-3">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.allDing"></span></p>
+                    <p style="color: #999;" class="my_font2">总订单数</p>
+                </div>
+                <div class="col-xs-3" ng-click="skipPage(2);">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.allKou"></span></p>
+                    <p style="color: #999;" class="my_font1">总扣量数</p>
+                </div>
+            </div>
+            <!--分割线-->
+            <hr class="console_btn_line">
+            <div class="row text-center" style="margin-top: 15px;">
+                <div class="col-xs-3" ng-click="skipPage(1);">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.todayAllMoney"></span></p>
+                    <p style="color: #999;" class="my_font1">今日发生金额</p>
+                </div>
+                <div class="col-xs-3" ng-click="skipPage(1);">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.todayAllKouMoney"></span></p>
+                    <p style="color: #999;" class="my_font1">今日扣量金额</p>
+                </div>
+                <div class="col-xs-3" ng-click="skipPage(1);">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.allMoney"></span></p>
+                    <p style="color: #999;" class="my_font1">总发生金额</p>
+                </div>
+                <div class="col-xs-3" ng-click="skipPage(1);">
+                    <p style="color: #000;margin: 0;font-weight: bold" class="my_font3 "><span ng-bind="flingDataTop_data.allKouMoney"></span></p>
+                    <p style="color: #999;" class="my_font1">总扣量金额</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--分割线-->
+    <hr class="console_btn_line">
+    <!--扣量比例-->
+    <p class="my_font3" style="margin:15px 0 5px 15px;color:#79787E;font-weight: 800;">
+        扣量比例　
+        <span class="my_font2" style="font-weight: 500;">当前扣量比例：{{flingDataTop_data.currentKou}}</span>
+    </p>
+    <div class="table_fling_div" style="padding:3% 2%;height:54px;margin-top:0px;">
+        <span style="float:left;line-height:34px;margin-right:10px;" class="my_font3">
+            设置扣量比例:
+        </span>
+        <div class="dropdown" style="float:left;">
+            <select class="form-control" style="border:1px solid #D3D3D3;width:100%;" ng-model="warn">
+                <option value="">请选择</option>
+                <option style="height:15px;">10/0</option>
+                <option style="height:15px;">9/1</option>
+                <option style="height:15px;">8/2</option>
+                <option style="height:15px;">7/3</option>
+                <option style="height:15px;">6/4</option>
+                <option style="height:15px;">5/5</option>
+                <option style="height:15px;">4/6</option>
+                <option style="height:15px;">3/7</option>
+                <option style="height:15px;">2/8</option>
+                <option style="height:15px;">1/9</option>
+                <option style="height:15px;">0/10</option>
+            </select>
+        </div>
+        <button class="btn btn-success" ng-click="btnSelect(warn)" style="float: right">确认</button>
+    </div>
+
+    <!--列表-->
+    <p class="my_font3" style="margin:15px 0 5px 15px;color:#79787E;font-weight: 800;">充值列表</p>
+    <table class="table table-striped" border="1" bordercolor="#ccc">
+        <tr>
+            <td>
+                玩家ID<br>
+                <span style="color:#ccc;">代理ID</span>
+            </td>
+            <td>金额</td>
+            <td ng-bind="money_name"></td>
+            <td>时间</td>
+            <td>状态</td>
+        </tr>
+        <tr ng-repeat="info in flingData_data" ng-click="getAgencyInfo(info.id);">
+            <td><!--玩家ID-->
+                {{info.openId}}<br>
+                <span style="color:#ccc;" ng-bind="info.dailId">635241</span> <!--代理ID-->
+            </td>
+            <td ng-bind="info.openBuy"></td>
+            <td ng-bind="info.openCard"></td>
+            <td ng-bind="info.openTime"></td>
+            <td style="color: #327AB7;">
+                <u ng-bind="info.status" style="padding:5px;"></u>
+                <button type="button" class="btn btn-info" style="padding:1px;height:28px;" ng-click="cutInto(info.openId,info.dailId,info.orderNum);" ng-hide="info.cashStatus">切换</button>
+                <button type="button" class="btn btn-default disabled" style="padding:1px;height:28px;background: #ccc;" ng-show="info.cashStatus">切换</button>
+            </td>
+        </tr>
+    </table>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

@@ -1,0 +1,92 @@
+<div ng-controller="agency_reduceCtrl">
+    <div class="j_user_module">
+        <ul class="j_user_fun_ul">
+            <!--导航栏-->
+            <li class="j_user_fun_li text-left" style="margin-bottom: 0;">
+                <p class="title my_font3">被扣除用户</p>
+                <div class="input-group" style="margin:12px 0;">
+                    <input type="text" class="form-control" placeholder="请输入要扣除的用户ID" ng-model="deduct_val">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" ng-click="deduct(deduct_val)">查询</button>
+                </span>
+                </div>
+                <div class="text-left row">
+                    <!--头像-->
+                    <div  class="text-center col-xs-3">
+                        <img ng-src="{{deduct_head?deduct_head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                    </div>
+                    <div class="col-xs-8" style="display: inline-block;margin-left:10px;">
+                        <h4 script="col">
+                            <span>{{get_name(user_name?user_name:"")}}</span>
+                        </h4>
+                        <p class="text-muted" style="margin: 5px 0 0 0">ID:<span ng-bind="user_id"></span></p>
+                        <p class="text-muted" style="margin:0">玩家<span ng-bind="money_name"></span> : <span  style="font-weight: bold;color: #ff0000;" ng-bind="money"></span></p>
+                        <p class="text-muted" style="margin:0">代理<span ng-bind="money_name"></span> : <span  style="font-weight: bold;color: #ff0000;" ng-bind="agency_money"></span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="j_user_fun_li text-left" style="padding-top:15px;margin-bottom: 0px;">
+                <p class="title my_font3">扣除身份</p>
+                <select class="form-control" style="border:1px solid #D3D3D3;width:70%;margin-left:15%;margin-top:5px;" ng-model="deduct_select">
+                    <option value="">请选择扣除身份</option>
+                    <option>玩家身份</option>
+                    <option>代理身份</option>
+                </select>
+                扣除金额
+                <div class="text-center" style="margin-top: 5px;">
+                    <button ng-click="deduct_setMoney(-1,deduct_money)" class="glyphicon glyphicon-minus btn btn-info" style="margin-top: -5px;"></button>
+                    <input class="text-center" ng-model="deduct_num_money" type="tel" maxlength="9"
+                           style="width:40%;border-radius: 3px;line-height: 32px;padding: 0;border: 1px solid #449d44">
+                    <button ng-click="deduct_setMoney(1,deduct_money)" class="glyphicon glyphicon-plus btn btn-info" style="margin-top: -5px;"></button>
+                </div>
+            </li>
+        </ul>
+    </div>
+<div style="width:100%;height:1px;"></div>
+    <div class="j_user_module">
+        <ul class="j_user_fun_ul">
+            <!--导航栏-->
+            <li class="j_user_fun_li text-left" style="margin-bottom: 0;">
+                <p class="title my_font3">转入账户</p>
+                <div class="input-group" style="margin:12px 0;">
+                    <input type="text" class="form-control" placeholder="请输入要转入的用户ID" ng-model="transfer_val">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" ng-click="transfer(transfer_val)">查询</button>
+                </span>
+                </div>
+                <div class="text-left row">
+                    <!--头像-->
+                    <div  class="text-center col-xs-3">
+                        <img ng-src="{{transfer_head?transfer_head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                    </div>
+                    <div class="col-xs-8" style="display: inline-block;margin-left:10px;">
+                        <h4 script="col">
+                            <span>{{get_name(transfer_user_name?transfer_user_name:"")}}</span>
+                        </h4>
+                        <p class="text-muted" style="margin: 5px 0 0 0">ID:<span ng-bind="transfer_user_id"></span></p>
+                        <p class="text-muted" style="margin:0">玩家<span ng-bind="money_name"></span> : <span  style="font-weight: bold;color: #ff0000;" ng-bind="transfer_money"></span></p>
+                        <p class="text-muted" style="margin:0">代理<span ng-bind="money_name"></span> : <span  style="font-weight: bold;color: #ff0000;" ng-bind="transfer_agency_money"></span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="j_user_fun_li text-left" style="padding-top:15px;margin-bottom: 0px;">
+                <p class="title my_font3">转入身份</p>
+                <select class="form-control" style="border:1px solid #D3D3D3;width:70%;margin-left:15%;margin-top:5px;" ng-model="transfer_select">
+                    <option value="">请选择扣除身份</option>
+                    <option>玩家身份</option>
+                    <option>代理身份</option>
+                </select>
+                转入金额
+                <div class="text-center" style="margin-top: 5px;">
+                    <button ng-click="transfer_setMoney(-1)" class="glyphicon glyphicon-minus btn btn-info" style="margin-top: -5px;"></button>
+                    <input class="text-center" ng-model="transfer_num_money" type="tel" maxlength="9"
+                           style="width:40%;border-radius: 3px;line-height: 32px;padding: 0;border: 1px solid #449d44">
+                    <button ng-click="transfer_setMoney(1)" class="glyphicon glyphicon-plus btn btn-info" style="margin-top: -5px;"></button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--确认按钮-->
+    <button ng-click="enter_deduction(user_id,deduct_select,deduct_num_money,transfer_user_id,transfer_select,transfer_num_money);" class="btn btn-danger " style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">确认扣除</button>
+    <div style="width:100%;height:50px;"></div>
+</div>

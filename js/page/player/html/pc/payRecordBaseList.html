@@ -1,0 +1,35 @@
+<div style="margin-bottom: 40px;">
+
+
+    <table class="table my_table" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width:20px;border-bottom-width:0;text-align:center;">序号</th>
+            <th style="width: 50px;border-bottom-width:0;">个人信息</th>
+            <th style="width: 50px;border-bottom-width:0;">充值{{money_name}}</th>
+            <th style="width: 50px;border-bottom-width:0;">代理商</th>
+            <th style="width: 50px;border-bottom-width:0;">代理商ID</th>
+            <th style="width: 80px;border-bottom-width:0;">充值时间</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in list">
+            <td ng-bind="info.num" class="text-center"></td>
+            <td style="display:flex;">
+                <div style="float:left;box-flex:1;">
+                    <img class="p_user_head " ng-src="{{info.head?info.head:'image/head/2.png'}}">
+                </div>
+                <div style="float:left;margin:5px 0 0 20px;">
+                    <p ng-bind="info.userName" class="text-primary my_font3" style="box-flex:2;font-weight: bold;margin:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+                    ID:<span ng-bind="info.p_uId"></span>
+                </div>
+            </td>
+            <td ng-bind="info.money"></td>
+            <td ng-bind="info.aUserName"></td>
+            <td ng-bind="info.a_uId"></td>
+            <td ng-bind="info.createTime"></td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">--不要迷恋哥，嫂子会揍你 --</p>
+</div>

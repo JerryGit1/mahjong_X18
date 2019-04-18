@@ -1,0 +1,38 @@
+<div >
+    <table class="table" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width: 30px;border-bottom-width:0;text-align: center;">序列</th>
+            <th style="width: 60px;border-bottom-width:0;">昵称</th>
+            <th style="width: 50px;border-bottom-width:0;">身份</th>
+            <th style="width: 50px;border-bottom-width:0;">ID</th>
+            <th style="width: 50px;border-bottom-width:0;">原始ID</th>
+            <th style="width: 60px;border-bottom-width:0;">手机号</th>
+            <th class="pc_add" style="width: 150px;border-bottom-width:0;">权限</th>
+            <th style="width: 50px;border-bottom-width:0;">添加时间</th>
+            <th style="width: 50px;border-bottom-width:0;">详情/操作</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in list" ng-class="info.class">
+            <td ng-bind="info.num" class="text-center"></td>
+            <td ng-bind="info.name"></td>
+            <td ng-bind="getLevelName(info.grade)"></td>
+            <td ng-bind="info.userId"></td>
+            <td ng-bind="info.id"></td><!--原始ID-->
+            <td ng-bind="info.phone"></td>
+            <td ng-bind="info.jStr" class="one_line pc_add" title="{{info.jStr}}" style="width: 300px;"></td>
+            <td ng-bind="info.time"></td>
+            <td class="table_btn_tool">
+                <span ng-click="userInfo(info.id)" data-toggle="jurisdiction_tooltip" data-placement="top" title="设置管理员信息">
+                    <i  class="my_font3 glyphicon glyphicon-cog text-primary"></i>
+                </span>
+                <span ng-click="deleteUser(info.id)" data-toggle="jurisdiction_tooltip" data-placement="top" title="删除管理员">
+                    <i  class="my_font3 glyphicon glyphicon-trash text-danger"></i>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">--我是有底线的哦--</p>
+</div>

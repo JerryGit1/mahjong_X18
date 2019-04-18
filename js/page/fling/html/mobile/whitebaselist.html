@@ -1,0 +1,19 @@
+<div>
+    <!--白名单列表---------豪华版-->
+    <ul class="list-group">
+        <li class="list-group-item" style="padding-left:10px;min-height:60px;" ng-repeat="info in whiteList_data">
+            <div style="float:left;width:42px;height:42px;">
+                <img ng-src="{{info.openImg?info.openImg:'image/head/2.png'}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+            </div>
+            <div style="float:left;margin: 0 0 0 10px;">
+                <P class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{info.openName}}</P>
+                <P class="my_font2" style="margin-bottom:0;color:#9E9E9E;">ID: <span ng-bind="info.openId"></span></P>
+            </div>
+            <div style="float:right;">
+                <button type="button" class="btn btn-danger" style="margin-top:5px;" ng-hide="hid" ng-click="joinRemList(info.openId,0)">删除</button>
+                <button type="button" class="btn btn-info" style="margin-top:5px;" ng-show="hid" ng-click="joinRemList(info.openId,1)">加入</button>
+            </div>
+        </li>
+    </ul>
+
+</div>

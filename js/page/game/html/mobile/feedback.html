@@ -1,0 +1,40 @@
+<div ng-controller="game_FBCtrl">
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--列表-->
+    <div style="margin-bottom: 40px;">
+        <table class="table table-bordered my_table" style="table-layout:fixed;">
+            <thead>
+            <tr role="row" class="my_table_tr" ng-class="table_class">
+                <th style="width: 25px;border-bottom-width:0;">序列</th>
+                <th style="width: 400px;border-bottom-width:0;">反馈内容</th>
+                <th style="width: 50px;border-bottom-width:0;">手机号</th>
+                <th style="width: 100px;border-bottom-width:0;">反馈时间</th>
+                <th style="width: 50px;border-bottom-width:0;">玩家昵称</th>
+                <th style="width: 50px;border-bottom-width:0;">操作</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat-end="{{renderFinish()}}">
+            <tr ng-repeat="info in list" ng-class="info.class">
+                <td ng-bind="info.num" class="text-center" style="vertical-align:middle;"></td>
+                <td class="auto_line" ng-bind="info.content"></td>
+                <td class="auto_line" ng-bind="info.phone"></td>
+                <td ng-bind="info.createTime" style="vertical-align:middle;"></td>
+                <td  style="vertical-align:middle;">
+                     <span data-toggle="game_SMC_tooltip" data-placement="top" title="ID:{{info.uId}}">
+                          <i  ng-bind="info.userName"></i>
+                     </span>
+                </td><!--还要附加id 便于查询-->
+                <td class="table_btn_tool" style="vertical-align:middle;">
+                     <span ng-click="deleteInfo(info.id)" data-toggle="game_SMC_tooltip" data-placement="top" title="删除这条反馈">
+                          <i  class="my_font3 glyphicon glyphicon-trash text-danger"></i>
+                     </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">做人留一线---------------日后好相见</p>
+    </div>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

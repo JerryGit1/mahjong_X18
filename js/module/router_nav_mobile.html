@@ -1,0 +1,20 @@
+<div class="router_nav" ng-repeat-end="{{renderFinish()}}" style="position:relative; {{myStyle}}">
+    <div class="search-wrap" style="margin-top: 10px;">
+        <input type="{{nav_input_type}}"
+               ng-focus="inputFocus();"
+               ng-keyup="search($event)"
+               class="my_box_size" type="text"
+               ng-model="scopeStr" maxlength="30"
+               placeholder="{{searchPlaceholder}}">
+
+
+        <button  class="btn" style="background:#5cb85c!important;position: absolute;top:4px;right: 0;width: 120px;color:#fff;"  ng-click="search()" type="button" >
+            查询
+        </button>
+        <!--<button  class="btn {{searchBtnClass}}"  style="background:#aaa!important;margin-right: 10%;" ng-click="inputBlur()" type="button">-->
+        <!--取消-->
+        <!--</button>-->
+        <p ng-bind="nav_input_tips" class="text-center my_font2" style="color: #ccc;margin: 6px 0 0 0"></p>
+        <p ng-bind="slInfo.name" data-toggle="menu_tooltip"  data-placement="bottom"></p>
+    </div>
+</div>

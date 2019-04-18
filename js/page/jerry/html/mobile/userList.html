@@ -1,0 +1,83 @@
+<!--唐僧洗头爱飘柔  --丁杰 2017/11/24-->
+<div ng-controller="jerry_userListCtrl" class="GM_back_3">
+    <!--成员-->
+    <p style="height:20px;text-align:right;padding:15px 30px 10px 0;color:#5C5C5B;">成员 : {{memberList.currNum?memberList.currNum:0}}/{{memberList.totalNum?memberList.totalNum:60}}</p>
+    <!--导航栏-->
+            <div class="btn-group btn-group-justified" style="margin-bottom:10px;margin-top:20px;">
+                <div class="btn-group">
+                    <div type="button" ng-click="show(1)" class="{{page1?'atv':''}}" style="padding-bottom:10px;text-align: center;color:#5B5A5A;font-size: 15px;font-weight: 500;">成员列表</div>
+                </div>
+                <div class="btn-group">
+                    <div type="button" ng-click="show(2)" class="{{page2?'atv':''}}" style="position:relative;padding-bottom:10px;text-align: center;color:#5B5A5A;font-size: 15px;font-weight: 500;">
+                        <div style="position:absolute;width:10px;height:10px;border-radius: 50%;background:#F64C2F;left:95px;top:0;" ng-show="sow"></div>
+                        入会申请
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div type="button" ng-click="show(3)" class="{{page3?'atv':''}}" style="position:relative;padding-bottom:10px;text-align: center;color:#5B5A5A;font-size: 15px;font-weight: 500;">
+                        <div style="position:absolute;width:10px;height:10px;border-radius: 50%;background:#F64C2F;left:95px;top:0;" ng-show="hed"></div>
+                        离会申请
+                    </div>
+                </div>
+            </div>
+    <!--成员列表------------------------------------------------------------------------------------------->
+    <div ng-show="page1">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding-left:10px;height: 62px;" ng-repeat="info in memberList.users">
+                <div style="float:left;width:42px;height:42px;">
+                    <img ng-src="{{info.userImg}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+                </div>
+                <div style="float:left;margin: 0 0 0 10px;">
+                    <P class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.userName)}}</P>
+                    <P class="my_font2" style="margin-bottom:0;color:#9E9E9E;">ID: <span ng-bind="info.userId"></span></P>
+                </div>
+
+                <div style="float:right;">
+                    <button type="button" class="btn btn-danger" style="margin-top:5px;" ng-hide="info.show?info.show:false" ng-click="rem(info.userId)">删除</button>
+                    <p style="color:#A3A3A3;margin-top:10px;margin-right:7px;float: right;" ng-show="info.show?info.show:false">主持人</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--入会申请--------------------------------------------------------------------------------->
+    <div ng-show="page2">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding-left:10px;height: 62px;" ng-repeat="info in forList.users">
+                <div style="float:left;width:42px;height:42px;">
+                    <img ng-src="{{info.userImg}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+                </div>
+                <div style="float:left;margin: 0 0 0 10px;">
+                    <P class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.userName)}}</P>
+                    <P class="my_font2" style="margin-bottom:0;color:#9E9E9E;">ID: <span ng-bind="info.userId"></span></P>
+                </div>
+                <div style="float:right;">
+                    <div class="btn-group btn-group-xs">
+                        <button type="button" class="btn btn-success" style="font-size:14px;height:40px;padding:0 10px;background: #ADDB50;border:1px solid #ADDB50;" ng-click="success(1,info.userId)">同意</button>
+                        <button type="button" class="btn btn-danger" style="font-size:14px;height:40px;padding:0 10px;" ng-click="under(0,info.userId)">拒绝</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--离会申请--------------------------------------------------------------------------------->
+    <div ng-show="page3">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding-left:10px;height: 62px;" ng-repeat="info in leaveList.users">
+                <div style="float:left;width:42px;height:42px;">
+                    <img ng-src="{{info.userImg}}" alt="" style="width:40px;height:40px;border-radius: 50%;">
+                </div>
+                <div style="float:left;margin: 0 0 0 10px;">
+                    <P class="my_font3" style="width:100px;color:#111111;margin-bottom:2px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{get_name(info.userName)}}</P>
+                    <P class="my_font2" style="margin-bottom:0;color:#9E9E9E;">ID: <span ng-bind="info.userId"></span></P>
+                </div>
+                <div style="float:right;">
+                    <div class="btn-group btn-group-xs">
+                        <button type="button" class="btn btn-success" style="font-size:14px;height:40px;padding:0 10px;background: #ADDB50;border:1px solid #ADDB50;" ng-click="goBar(1,info.userId)">同意</button>
+                        <button type="button" class="btn btn-danger" style="font-size:14px;height:40px;padding:0 10px;" ng-click="here(0,info.userId)">拒绝</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">做人留一线---------------日后好相见</p>
+</div>

@@ -1,0 +1,45 @@
+<div ng-controller="fling_whitelist" class="GM_back_4">
+    <!--查找与加入白名单-->
+    <div style="height:20px;"></div>
+    <!--两个input框-->
+    <div class="panel panel-default">
+        <div class="panel-heading" style="text-align: center;">白名单</div>
+        <div class="panel-body">
+            <!--要加入的用户ID-->
+            <div class="row">
+                <!--用户ID-->
+                <div style="float:left;line-height:34px;padding:0;width:20%;margin-right:5px;margin-left:10px;text-align: center;" class="col-xs-4">加入用户</div>
+                <!--input-->
+                <div class="col-xs-4" style="float:left;padding:0;width:50%;">
+                    <div>
+                        <input type="text" class="form-control" placeholder="要加入的用户ID" ng-model="jia">
+                    </div>
+                </div>
+                <!--加入按钮-->
+                <div style="float:right;padding:0;width:20%;" class="col-xs-4">
+                    <button type="button" class="btn btn-info" ng-click="joinRemList(jia,1)">加入</button>
+                </div>
+            </div>
+            <div style="width:100%;height:20px;float:left;"></div>
+            <!--查找的用户ID-->
+            <div class="row">
+                <!--用户ID-->
+                <div style="float:left;line-height:34px;padding:0;width:20%;margin-right:5px;margin-left:10px;text-align: center;" class="col-xs-4">查找用户</div>
+                <!--input-->
+                <div class="col-xs-4" style="float:left;padding:0;width:50%;">
+                    <div>
+                        <input type="text" class="form-control" placeholder="要查找的用户ID" ng-model="wan">
+                    </div>
+                </div>
+                <!--加入按钮-->
+                <div style="float:right;padding:0;width:20%;" class="col-xs-4">
+                    <button type="button" class="btn btn-info" ng-click="checkWhiteList(wan,0);">查找</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--列表-->
+    <fling-white-base-list></fling-white-base-list>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

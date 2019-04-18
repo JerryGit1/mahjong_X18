@@ -1,0 +1,84 @@
+<div class="j_user_module">
+    <img src="image/u_title.png">
+    <!--<div class="title">管理员信息</div>-->
+    <div  style="min-width: 400px;width: 60%;display: inline-block">
+        <div class="user-group ">
+            <div class="user_ctrl1">
+                <i class="glyphicon glyphicon-user"></i>
+            </div>
+            <div class="user_ctrl2">
+                <div>
+                    <input maxlength="12"   ng-model="userName" placeholder="用户名">
+                </div>
+            </div>
+        </div>
+        <div class="user-group">
+            <div class="user_ctrl1">
+                <i class="glyphicon glyphicon-phone"></i>
+            </div>
+            <div class="user_ctrl2">
+                <div>
+                    <input  maxlength="11" ng-model="userPhone" placeholder="手机号">
+                </div>
+            </div>
+        </div>
+        <div class="user-group ">
+            <div class="user_ctrl1" style="color:#c09853">
+                <i class="glyphicon glyphicon-user"></i>
+            </div>
+            <div class="user_ctrl2">
+                <div>
+                    <input   maxlength="16" ng-model="loginName" placeholder="登录名">
+                </div>
+            </div>
+        </div>
+        <div class="user-group ">
+            <div class="user_ctrl1" style="color:#c09853">
+                <i class="glyphicon glyphicon-lock"></i>
+            </div>
+            <div class="user_ctrl2">
+                <div>
+                    <input maxlength="16" ng-model="loginPasswd" placeholder="密码">
+                </div>
+            </div>
+        </div>
+        <div class="user-group ">
+            <div class="user_ctrl1" style="color:#c09853">
+                <i class="glyphicon glyphicon-star-empty"></i>
+            </div>
+            <div class="user_ctrl2">
+                <div>
+                    <input maxlength="16" ng-model="gameID" placeholder="游戏ID">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 60%;display: inline-block">
+        <!--权限管理-->
+        <ul class="j_user_fun_ul">
+            <p >权限管理</p>
+            <li class="j_user_fun_li" ng-repeat="info in baseMenuList">
+
+                <!--权限管理的大项name-->
+                <p class="title my_font3" ng-bind="info.menuName"></p>
+
+                <!--里面的列表，二级功能-->
+                <ul style="text-align: left">
+
+                    <!--循环里面的列表，二级功能-->
+                    <li ng-repeat="data in info.list" class="my_font2 checkbox user-select-none" style="width: 30%;display: inline-block">
+                        <label>
+                            <input type="checkbox"  value="option1" ng-model="data.value">
+                            {{data.menuName}}
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!--保存-->
+        <div style="width: 100%;text-align: center;margin-top: 30px;" >
+            <button ng-click="btnClick();" class="btn btn-primary" style="width: 50%;height: 45px;" ng-bind="btnName"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!--翻页按钮-->
+<div class="table_pageing my_font2 user-select-none">
+    <ul>
+        <li ng-click="skipPage(1)">
+            首页
+        </li>
+        <li ng-click="skipPage(2)">
+            上一页
+        </li>
+        <li style="width: 60px;">
+            <a><span ng-bind="current_page"></span>/<span ng-bind="max_page"></span></a>
+        </li>
+        <li ng-click="skipPage(3)">
+            下一页
+        </li>
+        <li ng-click="skipPage(4)">
+            尾页
+        </li>
+    </ul>
+    <div class="mobile_add" ng-bind="pageTips">
+
+    </div>
+</div>

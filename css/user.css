@@ -1,0 +1,154 @@
+
+
+
+
+
+
+/*管理员详情*/
+.j_user_module{
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(126,134,162,0.25);
+    width: 80%;
+    margin-left: 10%;
+    padding:20px 0 30px 0;
+    text-align: center;
+}
+.j_user_module>img{
+    width: 101%;
+    margin-left: -0.5%;
+    height: 160px;
+}
+.j_user_module>div{
+    width: 60%;
+    display: inline-block;
+    margin-top: 30px;
+}
+.j_user_module .well-content{
+    padding: 25px;
+}
+.user-group{
+    border: 1px solid #ccc;
+    height: 45px;
+    line-height: 45px;
+    margin-top:18px;
+}
+.user_ctrl2{
+    width: 100%;
+    float: right;
+}
+.user_ctrl2>div{
+    margin-left:50px;
+}
+.user_ctrl2>div>input{
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    outline:none;
+    font-size: 16px;
+}
+.user_ctrl1{
+    width: 50px;
+    margin-right: -100%;
+    float: left;
+    font-size: 20px;
+    color: rgba(122,122,122,.8);
+}
+.j_user_fun_ul{
+    background: #f6f6f6;
+    padding: 2%;
+    margin: 10px 0;
+    border: 1px solid #e4e4e4;
+    color: #333;
+}
+.j_user_fun_li{
+    border: 1px solid #e4e4e4;
+    width: 100%;
+    margin:15px 0;
+    position: relative;
+    min-height: 45px;
+    padding: 10px;
+}
+.j_user_fun_li .title{
+    position: absolute;
+    background:#f6f6f6 ;
+    left: 5px;
+    top:-10px;
+    padding: 0px 6px 6px 6px;
+}
+.j_user_fun_li  .uInfo{
+    color: #888888;
+}
+/*代理个人信息介绍*/
+.a_user{
+    display: inline-block;
+    width: 50%;
+}
+.a_user>p{
+    font-size: 20px;
+}
+.a_user>div{
+    font-size: 14px;
+    color: #888;
+}
+.a_user>div>p{
+    margin: 2px 0;
+}
+.a_user>div>p>i{
+    width: 200px;
+}
+/*用户头像*/
+.p_user_head{
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: 50%;
+}
+/*用户详情里边的列表table*/
+.userInfo_list{
+    padding: 25px;
+}
+
+
+
+@media (max-width: 768px){
+    .j_user_module{
+        background: #fff;
+        box-shadow: 0 4px 4px rgba(126,134,162,0.25);
+        width: 100%;
+        margin:0;
+        padding:0;
+        text-align: center;
+    }
+    .j_user_module>img{
+        width: 101%;
+        margin-left: -0.5%;
+        height: 80px;
+    }
+    .j_user_module>div{
+        width: 100%;
+        display: inline-block;
+        margin-top:0;
+    }
+    /*用户详情里边的列表table*/
+    .userInfo_list{
+        padding: 0;
+        overflow-x: scroll;
+    }
+    .user-group{
+        border: 1px solid #ccc;
+        height: 45px;
+        line-height: 45px;
+        margin-top:10px;
+    }
+
+}
+
+
+
+
+
+
+
+

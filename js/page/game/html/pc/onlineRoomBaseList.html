@@ -1,0 +1,31 @@
+<div style="margin-bottom: 40px;">
+    <table class="table table-bordered my_table" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width: 25px;border-bottom-width:0;">序列</th>
+            <th style="width: 100px;border-bottom-width:0;">房间ID</th>
+            <th style="width: 50px;border-bottom-width:0;">创建时间</th>
+            <th style="width: 100px;border-bottom-width:0;">房主信息</th>
+            <th style="width: 50px;border-bottom-width:0;">解散房间</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in list" ng-class="info.class">
+            <td ng-bind="info.num" class="text-center" style="vertical-align:middle;"></td>
+            <td class="auto_line" ng-bind="info.roomID" style="vertical-align:middle;"></td>
+            <td class="auto_line" ng-bind="info.cTime" style="vertical-align:middle;"></td>
+            <td  style="vertical-align:middle;">
+                <img class="p_user_head" ng-src="{{info.pHead}}">
+                <span ng-bind="info.pName"></span>
+            </td>
+            </td><!--还要附加id 便于查询-->
+            <td class="table_btn_tool" style="vertical-align:middle;">
+                     <span ng-click="deleteInfo(info.roomID)" data-toggle="game_SMC_tooltip" data-placement="top" title="解散房间">
+                          <i  class="my_font3 glyphicon glyphicon-trash text-danger"></i>
+                     </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">做人留一线---------------日后好相见</p>
+</div>

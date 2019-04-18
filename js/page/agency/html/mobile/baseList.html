@@ -1,0 +1,36 @@
+<!--列表-->
+<div>
+    <ul>
+        <li ng-repeat="info in list" ng-class="info.class" class="row myBtn" style="padding: 10px 0" ng-click="getAgencyInfo(info.binding_playerId)">
+            <!--头像-->
+            <div class="col-xs-3">
+                <img class="p_user_head" ng-src="{{info.head}}">
+            </div>
+            <!--介绍-->
+            <div class="col-xs-9">
+                <div class="row" style="margin-right: 1px;">
+                    <!--昵称 身份-->
+                    <h4 style="margin: 1px;">
+                        <span ng-bind="info.userName"></span>
+                        <span class="label label-info" style="font-size: 11px;float: right;padding: 5px;" ng-bind="getLevelName(info.grade)"></span>
+                    </h4>
+                    <!--ID-->
+                    <p style="margin: 4px 1px 1px 1px" class="text-muted">
+                        ID:<span ng-bind="info.binding_playerId"></span>
+                        <span class="my_table_left_line"></span>
+                        总<span ng-bind="money_name"></span>: <span class="text-danger" ng-bind="info.money"></span>
+                    </p>
+                    <p style="margin: 0" class="text-muted">
+                        <!--手机号-->
+                        <span class="glyphicon glyphicon-phone text-primary"> </span>
+                        <span ng-bind="info.id"></span>
+                        <!--创建时间-->
+                        <span class="my_table_left_line"></span>
+                        <span class="glyphicon glyphicon-time text-success"> </span>
+                        <span ng-bind="info.createTime"></span>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

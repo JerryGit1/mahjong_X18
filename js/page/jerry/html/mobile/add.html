@@ -1,0 +1,32 @@
+<!--唐僧洗头爱飘柔  --丁杰 2017/11/24-->
+<div ng-controller="jerry_addCtrl" class="GM_back_3">
+                <!--创建俱乐部-->
+                <p style="text-align:center;padding-top:20px;font-weight:900;">俱乐部名称</p>
+                <input type="text" class="form-control" maxlength="7" placeholder="最多允许15个字符（7个汉字）" style="border:1px solid #D3D3D3;width:70%;margin-left:15%" ng-model="myVar">
+                <!--输入初始库存-->
+                <p style="text-align:center;margin-top:30px;font-weight:900;">输入原始库存 <span style="color:#A3A3A3;font-size:12px;">剩余{{money_name}}{{my_money}}</span></p></p>
+                <input type="tel" class="form-control" placeholder="请输入阿拉伯数字" style="border:1px solid #D3D3D3;width:70%;margin-left:15%" ng-model="dayOver">
+
+                <!--每位成员每日消耗限额-->
+                <p style="text-align:center;margin-top:30px;font-weight:900;">每位成员每日消耗限额</p>
+                <select class="form-control" style="border:1px solid #D3D3D3;width:70%;margin-left:15%" ng-model="limit">
+                        <option value="">请选择</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>150</option>
+                        <option>200</option>
+                </select>
+        <!--库存预警-->
+                <p style="text-align:center;margin-top:30px;font-weight:900;">库存预警</p>
+                <select class="form-control" style="border:1px solid #D3D3D3;width:70%;margin-left:15%" ng-model="warn">
+                        <option value="">请选择</option>
+                        <option>250</option>
+                        <option>300</option>
+                        <option>350</option>
+                        <option>400</option>
+                </select>
+        <!--确认与清空-->
+        <div style="text-align:center;">
+            <button type="button" class="btn btn-success btn-lg btn-block" style="color:#fff;width:200px;margin:40px auto;font-weight:500;border:none;"ng-click="ackSetup(myVar,dayOver,limit,warn)">确认创建</button>
+        </div>
+</div>

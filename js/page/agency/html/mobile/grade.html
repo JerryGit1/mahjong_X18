@@ -1,0 +1,35 @@
+<div ng-controller="agency_gradeCtrl">
+    <!--导航栏-->
+    <router-nav></router-nav>
+    <div class="j_user_module row">
+        <!--代理信息-->
+        <ul class="j_user_fun_ul" style="margin-bottom: 0;">
+            <li class="j_user_fun_li text-left" style="padding: 20px 10px">
+                <p class="title my_font3">用户信息</p>
+                <div class="text-left row">
+                    <!--头像-->
+                    <div  class="text-center col-xs-3">
+                        <img ng-src="{{head?head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                    </div>
+                    <!--用户id-->
+                    <!--昵称-->
+                    <!--房卡总数-->
+                    <!--注册时间-->
+                    <!--游戏总局数-->
+                    <div class="col-xs-8" style="display: inline-block">
+                        <h4 script="col">
+                            <span>{{get_name(user_name?user_name:"")}}</span>
+                            <span class="label label-info" style="font-size: 11px;float: right;padding: 5px;" ng-bind="level"></span>
+                        </h4>
+                        <p class="text-muted" style="margin: 5px 0 0 0">ID:<span ng-bind="user_id"></span></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!--代理身份-->
+    </div>
+    <ul class="text-center" style="width: 100%;padding: 0;margin:10px 0 0 0;">
+        <li ng-click="s_agency_change();" ng-show="hide" class="btn btn-warning {{payClass}}" style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">更改为S级代理</li>
+        <li ng-click="m_agency_change();" ng-hide="hide" class="btn btn-warning {{saveClass}}" style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">更改为普通代理</li>
+    </ul>
+</div>

@@ -1,0 +1,34 @@
+<div>
+    <ul>
+        <li ng-repeat="info in list" ng-class="info.class" class="row myBtn" style="padding: 10px 0" ng-click="getPlayerInfo(info.uId)">
+            <!--头像-->
+            <div class="col-xs-3">
+                <img class="p_user_head" ng-src="{{info.head}}">
+            </div>
+            <!--介绍-->
+            <div class="col-xs-9">
+                <div class="row" style="margin-right: 1px;">
+                    <!--昵称 身份-->
+                    <h4 style="margin: 1px;">
+                        <span ng-bind="info.userName"></span>
+                    </h4>
+
+                    <!--ID-->
+                    <p style="margin: 4px 1px 1px 1px" class="text-muted">
+
+                        用户ID:<span ng-bind="info.uId"></span>
+                        <span class="my_table_left_line"></span>消费<i ng-bind="money_name"></i>: <span class="text-danger" ng-bind="info.money"></span>
+
+                    </p>
+                    <!--创建时间-->
+                    <p class="text-muted" style="margin: 0;">
+                        订单ID : <span  ng-bind="info.id"></span>
+                        <span class="my_table_left_line"></span>
+                        <span class="glyphicon glyphicon-time text-danger"> </span>
+                        <span ng-bind="info.createTime"></span>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

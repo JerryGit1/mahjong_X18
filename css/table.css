@@ -1,0 +1,194 @@
+.my_table_tr{
+    color: #888888;
+    font-family: 'Open Sans', sans-serif;
+}
+.my_table_tr>th{
+    text-align: left;
+    color:#333333;
+}
+.table_btn_tool{
+    text-align: center;
+}
+.table_btn_tool>span{
+    margin: 3px 5px;
+    cursor: pointer;
+}
+.table_back1{
+    background: #f9f9f9;
+}
+.table_back2{
+    background: #fff;
+}
+/*翻页组件*/
+.table_pageing{
+    width: 100%;
+    text-align: right;
+    position: fixed;
+    bottom: 10px;
+    right: 40px;
+}
+.table_pageing>ul{
+    line-height: 37px;
+    border-radius: 4px;
+    background: #ccc;
+    width: auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+.table_pageing>ul>li{
+    display: inline-block;
+    border-radius: 0;
+    border:none;
+    background: #ececec;
+    height: 37px;
+    padding: 0 15px;
+    margin-left: -4px;
+    cursor: pointer;
+    border-left: 1px solid #ccc;
+    text-align: center;
+}
+.table_pageing>ul>li:hover{
+    background: #ccc;
+}
+/*单号 超出省略号*/
+.one_line{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+/*多行自动换行*/
+.auto_line{
+    word-break:break-all;
+}
+
+
+
+/*不同颜色*/
+.my_table_tr.green{
+    color: #fff;
+    background: rgba(142,191,72,0.8);
+}
+/*不同颜色*/
+.my_table_tr.terques{
+    color: #fff;
+    background:rgba(75,183,192,0.8);
+}
+.my_table_tr.c3{
+    color: #fff;
+    background:#f37b53;
+}
+.my_table_tr.c4{
+    color: #fff;
+    background:#4a8bc2;
+}
+.my_table_tr.c5{
+    color: #fff;
+    background:#404040;
+}
+.my_table_tr.c6{
+    color: #fff;
+    background:#9D4A9C;
+}
+.my_table_tr.c7{
+    color: #fff;
+    background:#DE577B;
+}
+
+
+/*特殊样式 战绩表样式*/
+.table_GameScoreLi{
+    line-height: 25px;
+
+}
+.table_GameScoreLi>span{
+    border: 1px solid #ccc;
+    text-align: center;
+    /*border:1px solid #e3e3e3;*/
+}
+.table_GameScoreLi:hover{
+    background: #9D4A9C;
+    color: #fff;
+}
+.my_table>tbody>tr:hover{
+    background:#F5FAFC;
+    color: #fff;
+}
+.my_table>thead>tr>th{
+    border-bottom-width:0;
+}
+.my_table>tbody>tr>td{
+    overflow: hidden;
+    word-wrap:break-word;
+    word-break:normal;
+    color:#526273;
+    border-top-color: #edf2f7 !important;
+    vertical-align: middle;
+}
+/*左侧分割线*/
+.my_table_left_line{
+    border-left: 1px solid #eee;
+    margin: -2px 5px 0 5px;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+/*移动端适配*/
+@media (max-width: 768px){
+    /*翻页组件*/
+    .table_pageing{
+        width: 100%;
+        text-align: center;
+        position: inherit;
+        padding: 1px;
+    }
+    .table_pageing>ul{
+        display: none;
+        list-style: none;
+    }
+    .table_pageing>div{
+        margin: 10px 0;
+        color: #ccc;
+    }
+    .my_table>tbody{
+        font-size: 1.1rem;
+    }
+    .table_back1{
+        border-bottom: 1px solid #eee;
+        background: none;
+    }
+    .table_back2{
+        border-bottom: 1px solid #eee;
+    }
+    .table_fling_div{
+        width: 99.4%;
+        background: #fff;
+        padding: .3%;
+        border-radius: 6px;
+        box-shadow: 0 0 10px #ccc;
+        margin-top: 10px;
+    }
+}
+
+
+/*成员管理的选项卡*/
+.atv{
+    border-bottom:5px solid #94BC45;
+}
+.sty{
+    background:#ccc;
+}
+
+
+/*战绩查询的选项卡*/
+
+
+
+
+

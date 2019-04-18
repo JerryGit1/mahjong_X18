@@ -1,0 +1,80 @@
+<div ng-controller="fling_userAffiliation">
+    <router-nav></router-nav><!--导航栏信息-->
+    <div class="j_user_module">
+        <img src="image/f_title.png">
+        <div>
+            <ul class="j_user_fun_ul" style="width:80%;margin:0 auto;">
+                <li class="j_user_fun_li text-left" style="padding: 20px 10px;border:none;border-bottom:1px solid #fff;">
+                        <p class="title my_font3" style="float:left;">用户信息：</p>
+                        <div class="input-group" style="margin-top:10px;float:left;">
+                            <input type="text" class="form-control" placeholder="请输入要调整的玩家ID" ng-model="val">
+                            <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ng-click="userPart(val)">查询</button>
+                        </span>
+                        </div><!-- /input-group -->
+                    <div style="height:10px;"></div>
+                    <div class="text-left row">
+                        <!--头像-->
+                        <div  class="text-center col-xs-3">
+                            <img ng-src="{{userPart_data.openImg?userPart_data.openImg:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                            <!--<button ng-click="lookUserInfo()" class="btn btn-primary" style="padding: 5px 10px;margin-top: 10px;">详情</button>-->
+                        </div>
+                        <!--用户id-->
+                        <!--昵称-->
+                        <div class="col-xs-8" style="display: inline-block">
+                            <h4 script="col">
+                                {{userPart_data.openName}}
+                            </h4>
+                            <p class="text-muted" style="margin: 5px 0 0 0">ID: {{userPart_data.openId}}</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="j_user_fun_li text-left" style="padding-top:15px;margin-bottom: 0px;border:none;">
+                    <p class="title my_font3" style="margin-top:10px;">归属信息：</p>
+                    <!--搜索代理-->
+                    <div class="input-group" style="margin-top:20px;">
+                        <input type="text" class="form-control" placeholder="请输入要归属的代理ID" ng-model="info">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ng-click="agencyInfo(info,val)">查询</button>
+                        </span>
+                    </div><!-- /input-group -->
+                    <!--2个代理信息-->
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="text-center col-xs-5">
+                            <!--头像-->
+                            <div  class="text-center">
+                                <img ng-src="{{userPart_data.daiLImg?userPart_data.daiLImg:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                            </div>
+                            <!--用户id,昵称-->
+                            <div style="display: inline-block">
+                                <h5 style="margin: 2px;">
+                                    {{get_name(userPart_data.daiLName?userPart_data.daiLName:"")}}
+                                </h5>
+                                <p class="text-muted" style="margin: 2px 0 0 0">ID: {{userPart_data.daiLId}}</p>
+                            </div>
+                        </div>
+                        <div class="text-success text-center col-xs-2 glyphicon glyphicon-arrow-right my_font4" style="line-height: 100px;"></div>
+                        <div class="text-center col-xs-5">
+                            <!--头像-->
+                            <div  class="text-center">
+                                <img ng-src="{{agencyInfo_data.daiLImg?agencyInfo_data.daiLImg:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                            </div>
+                            <!--用户id,昵称-->
+                            <div style="display: inline-block">
+                                <h5 style="margin: 2px;">
+                                    {{get_name(agencyInfo_data.daiLName?agencyInfo_data.daiLName:"")}}
+                                </h5>
+                                <p class="text-muted" style="margin: 2px 0 0 0">ID: {{agencyInfo_data.daiLId}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 100%;text-align: center;margin-top: 30px;" >
+        <button ng-click="startPay();" class="btn btn-success" style="width: 40%;height: 45px;">充值</button>
+    </div>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+</div>

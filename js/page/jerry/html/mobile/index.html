@@ -1,0 +1,98 @@
+<!--唐僧洗头爱飘柔  --丁杰 2017/11/24-->
+<!--俱乐部首页-->
+<div ng-controller="jerry_indexCtrl" class="GM_back_3" style="padding:0px;">
+    <div style="width:100%;height:10px;"></div>
+    <!--创建俱乐部  未添加的---------------------------------------------------------->
+    <div ng-repeat="info in dataInfo">
+            <!--没添加-->
+            <div class="panel panel-default {{info.hide?'show':'hide'}}" style="border:2px dashed #9DA0A0;display: block;height:80px;margin-bottom:10px;margin-top:15px;" ng-click="setupOne()">
+                <div class="panel-body" style="position:relative;height:80px;">
+                    <div style="width:50px;height:10px;background:#ccc;position:absolute;top:35px;left:25px;"></div>
+                    <div style="width:10px;height:50px;background:#ccc;position:absolute;left:45px;"></div>
+                    <div style="color:#ccc;font-size:18px;position:absolute;left:130px;top:25px;">点击创建俱乐部</div>
+                </div>
+            </div>
+            <!--添加后的--------------------------------------------------------------------->
+            <div class="panel panel-default {{info.hide?'hide':'show'}}" style="margin-top:15px;height:120px;border:1px solid #95BD44;margin-bottom:10px;background:#95BD44;" >
+                <div class="panel-body" style="position:relative;padding-top:4px;padding-left:5px;">
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item" style="display:flex;justify-content:space-between;border:none;padding:0;background:none;">
+                                <!--二维码，群名称-->
+                                <div style="width:85px;height:85px;float:left;">
+                                    <div style="background:#fff;font-size:16px;font-weight: 800;padding:2px;border:#ccc 1px solid;width: 70px;height: 70px;overflow: hidden;position: relative;margin-left:5px;margin-top:6px;">
+                                        <img ng-src="image/qCodeIcon.png" style="width: 100%;height: 100%;">
+                                        <img ng-src="{{info.url}}" style="width: 100%;height: 100%;opacity:0;position: absolute;top:0;left: 0;">
+                                    </div>
+                                     <p style="text-align:center;width:80px;margin-bottom:5px;color:#fff;font-size:12px;margin-top:5px;opacity:0.7;">长按保存</p>
+                                </div>
+                                <!--库存-->
+                                <div style="width:120px;height:85px;float:left;">
+                                    <p class="my_font1" style="color:#fff;text-align:center;width:120px;margin-bottom:2px;margin-top:5px;font-size:17px;font-weight: 800;" ng-bind="info.clubName"></p>
+                                    <div class="my_font1" style="color:#fff;float:left;width:120px;height:20px;line-height:20px;text-align:center;">日消耗限额：<span ng-bind="info.xiane?info.xiane:0"></span></div>
+                                    <div class="my_font1" ng-hide="info.hie" style="color:#fff;float:left;width:120px;height:20px;line-height:20px;text-align:center;">库存<span ng-bind="info.lastMoney?info.lastMoney:0"></span> <span class="my_font2">/</span> 预警{{info.yuJing}}</div>
+                                    <div class="my_font1" ng-show="info.hie" style="color:#FC5D43;float:left;width:120px;height:20px;line-height:20px;text-align:center;">库存<span ng-bind="info.lastMoney?info.lastMoney:0"></span> <span class="my_font2">/</span> 预警{{info.yuJing}}</div>
+                                    <div ng-show="info.sow" class="my_font1" style="color:#fff;float:left;width:120px;height:20px;line-height:20px;text-align:center;">{{info.FE}}到期</div>
+                                    <div ng-hide="info.sow" class="my_font1" style="color:#fff;float:left;width:120px;height:20px;line-height:20px;text-align:center;">正常模式(消耗房卡)</div>
+                                    <div class="my_font1" style="color:#fff;float:left;width:120px;height:20px;line-height:20px;text-align:center;">{{info.allPerson}}名成员</div>
+                                </div>
+                                <!--三个按钮-->
+                                <div>
+                                    <div style="float:left;width:85px;height:85px;margin-top:5px;">
+                                        <button type="button" class="btn btn-default btn-xs" style="position:relative;width:80px;height:28px;margin-bottom:3px;margin-left:5px;border-radius:4px;color:#95BD44;font-weight: 600;border:none;"ng-click="userList(info.clubId)">
+                                            <div style="position:absolute;left:70px;top:-2px;background:#F64C2F;width:12px;height:12px;border-radius: 50%;" ng-show="info.haveAction"></div>
+                                            成员管理
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-xs" style="width:80px;height:28px;margin-bottom:3px;margin-left:5px;border-radius:4px;color:#95BD44;font-weight: 600;border:none;"ng-click="pay(info.clubId,info.clubName)">
+                                            {{money_name}}管理
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-xs" style="width:80px;height:28px;margin-bottom:3px;margin-left:5px;border-radius:4px;color:#95BD44;font-weight: 600;border:none;"ng-click="recordList(info.clubId)">
+                                            战绩查询
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--结束--------------------------------------------------------------------->
+    </div>
+    <!--————————创建条件 分割线————————-->
+    <div style=" width:100%; margin-right:10px; margin-top:5px; text-align:center;">
+        <hr style="width:35%;vertical-align:middle; display:inline-block;"/>  创建条件  <hr style="width:35%;vertical-align:middle; display:inline-block;"/>
+    </div>
+    <!--创建条件内容-->
+    <ul style="margin-bottom:20px;margin-left:20px;height:200px;">
+        <p>
+            <li style="float:left;margin-top:5px;">
+                <div style="float:left;width:13px;height:13px;border-radius: 50%;background:#3E38FF;margin-right:12px;margin-top:3px;"></div>
+                账户房卡剩余至少1000张
+            </li>
+        </p><br>
+        <p>
+            <li style="float:left;margin-top:10px;">
+                <div style="float:left;width:13px;height:13px;border-radius: 50%;background:#FFA70F;margin-right:12px;margin-top:3px;"></div>
+                已经登记真实身份信息
+            </li>
+        </p><br>
+        <p>
+            <li style="float:left;margin-top:10px;">
+                <div style="float:left;width:13px;height:13px;border-radius: 50%;background:#A87A68;margin-right:12px;margin-top:3px;"></div>
+                每个账户创建与加入的俱乐部最多为三个
+            </li>
+        </p><br>
+        <p>
+            <li style="float:left;margin-top:10px;">
+                <div style="float:left;width:13px;height:13px;border-radius: 50%;background:#BCFF05;margin-right:12px;margin-top:3px;"></div>
+                俱乐部可消耗房卡至少保持在200张以上
+            </li>
+        </p><br>
+        <p>
+            <li style="float:left;margin-top:10px;">
+                <div style="float:left;width:13px;height:13px;border-radius: 50%;background:#B5B4B5;margin-right:12px;margin-top:3px;"></div>
+                解散俱乐部，剩余房卡会返还回主账号内
+            </li>
+        </p>
+    </ul>
+</div>

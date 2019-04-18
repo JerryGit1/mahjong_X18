@@ -1,0 +1,32 @@
+<div>
+    <li ng-repeat="info in list" ng-class="info.class" class="row" style="list-style: none; padding: 14px 0 12px 0;">
+        <!--头像-->
+        <div class="col-xs-3" style="text-align: center">
+            <img class="p_user_head" ng-src="{{info.pHead}}">
+
+        </div>
+        <!--介绍-->
+        <div class="col-xs-6">
+            <div class="row">
+                <!--房间号码-->
+                <h4 style="margin: 1px;">
+                    房间号:<span ng-bind="info.roomID"></span>
+                </h4>
+                <!--房主-->
+                <p class="text-muted" style="margin: 5px 2px 2px 2px;">
+                    <span class="glyphicon glyphicon-home"> </span>
+                    <span>{{decodeURIComponent(info.pName)}}</span>
+                </p>
+                <!--创建时间-->
+                <p class="text-muted" style="margin: 2px;" >
+                    <span class="glyphicon glyphicon-time"> </span>
+                    <span ng-bind="info.cTime"></span>
+                </p>
+            </div>
+        </div>
+        <!--解散按钮-->
+        <p class="col-xs-3"  style="text-align: right">
+            <button ng-click="deleteInfo(info.roomID)" style="margin-top: 25px;margin-right: 10px;" class="btn btn-sm btn-danger">解散房间</button>
+        </p>
+    </li>
+</div>

@@ -1,0 +1,54 @@
+<div class="j_user_module row">
+    <!--代理信息-->
+    <ul class="j_user_fun_ul" style="margin-bottom: 0;">
+        <li class="j_user_fun_li text-left" style="padding: 20px 10px">
+            <p class="title my_font3">用户信息</p>
+            <div class="text-left row">
+                <!--头像-->
+                <div  class="text-center col-xs-3">
+                    <img ng-src="{{userInfo.head?userInfo.head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                </div>
+                <!--用户id-->
+                <!--昵称-->
+                <!--房卡总数-->
+                <!--注册时间-->
+                <!--游戏总局数-->
+                <div class="col-xs-8" style="display: inline-block">
+                    <h4 script="col">
+                        <span>{{get_name(userInfo.userName?userInfo.userName:"")}}</span>
+                        <span class="label label-info" style="font-size: 11px;float: right;padding: 5px;" ng-bind="userInfo.identityStr"></span>
+                    </h4>
+                    <p class="text-muted" style="margin: 5px 0 0 0">ID:<span ng-bind="userInfo.id"></span></p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!--代理身份-->
+    <ul class="j_user_fun_ul">
+        <li class="j_user_fun_li">
+            <p class="title my_font3">代理等级</p>
+            <ul style="text-align: left">
+                <li ng-repeat="data in levelList" ng-hide="level" class="my_font2 checkbox user-select-none" style="width: 100%;display: inline-block">
+                    <label>
+                        <input type="checkbox"  value="option1" disabled checked>
+                        {{data.name}}
+                    </label>
+                </li>
+                <li ng-repeat="data in levelList" ng-show="level" class="my_font2 checkbox user-select-none" style="margin-top:15px;width: 100%;display: inline-block">
+                    <label>
+                        <input type="radio" name="radio" checked ng-click="checked(5)">
+                        <span style="margin-left:5px;line-height:22px;">{{data["level5"].name}}</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="radio" ng-click="checked(4)">
+                        <span style="margin-left:5px;line-height:22px;">{{data["level4"].name}}</span>
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<ul class="text-center" style="width: 100%;padding: 0;margin:10px 0 0 0;">
+    <li ng-click="pay();" class="btn btn-primary {{payClass}}" style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">充值<span ng-bind="money_name"></span></li>
+    <li ng-click="saveInfo();" class="btn btn-primary {{saveClass}}" style="width: 80%;margin: 20px 10% 30px 10%;padding: 10px 0">设为代理</li>
+</ul>

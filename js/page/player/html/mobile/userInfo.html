@@ -1,0 +1,42 @@
+<div ng-controller="player_userInfoCtrl">
+    <!--基本信息-->
+    <img src="image/u_title.png" style="width: 110%;height:250px;position: absolute;left: -10px;">
+    <div style="position: absolute;top:180px;width: 100%;">
+        <!--基础信息-->
+        <div class="text-center" style="padding:25px 0 0 0;width: 100%;">
+            <div class="text-left" style="height: 120px;width: 100%;margin-top:100px;">
+                <!--头像-->
+                <div style="display: inline-block;width: 100px;vertical-align: top;float: left">
+                    <img ng-src="{{userInfo.head}}"  style="background:#051934;width: 80px;height: 80px;border-radius: 50%;padding: 6px;">
+                </div>
+                <!--昵称 iD 房卡-->
+                <div style="float: left;">
+                    <h3 style="font-weight: bold;color: #fff;margin-top: 15px;">{{get_name(userInfo.userName)}}</h3>
+                    <div>
+                        <div style="float: left;">
+                            <b>ID</b>
+                            <p class="my_font3" ng-bind="userInfo.id"></p>
+                        </div>
+                        <div style="float: left;margin-left: 30px;">
+                            <b>{{money_name}}</b>
+                            <p class="my_font3" ng-bind="userInfo.money"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--openId 注册时间-->
+            <div class="text-left" style="margin-left: 20px;margin-top:10px;">
+                <div>
+                    <b>openId</b>：<span class="my_font3" ng-bind="userInfo.openId"></span>
+                </div>
+                <div style="margin-top:10px;">
+                    <b>注册时间</b>：<span class="my_font3" ng-bind="userInfo.createTime"></span>
+                </div>
+            </div>
+            <div style="position: absolute;top:80px;right: 20px;">
+                <button ng-click="pay();" class="btn btn-success" >充值</button><br>
+                <!--<button ng-click="setBlackState();" class="btn btn-danger" ng-bind="blackBtnName">加入黑名单</button>-->
+            </div>
+        </div>
+    </div>
+</div>

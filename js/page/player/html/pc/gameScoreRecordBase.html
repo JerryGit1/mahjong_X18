@@ -1,0 +1,55 @@
+<div style="margin-bottom: 40px;">
+    <table class="table table-bordered" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width: 25px;border-bottom-width:0;">编号</th>
+            <th style="width: 50px;border-bottom-width:0;">简介</th>
+            <th style="width: 150px;border-bottom-width:0;">玩家信息</th>
+            <th style="width: 160px;border-bottom-width:0;">详情</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="info in list" ng-class="info.class" ng-repeat-end="{{renderFinish()}}">
+            <td ng-bind="info.num" class="text-center" style="vertical-align:middle;" ></td>
+            <td  class="text-center" style="vertical-align:middle;">
+                <p>房间号:<span ng-bind="info.roomID" class="my_font4"></span></p>
+                <p>
+                    <label class="text-success glyphicon glyphicon-time"></label><span ng-bind="info.eTime">
+
+                </span>
+                </p>
+                <p>
+                    <label class="text-danger glyphicon glyphicon-time"></label><span ng-bind="info.sTime"></span>
+                </p>
+            </td>
+            <td style="padding-bottom: 0;">
+                <li class="table_GameScoreLi" ng-repeat="player in info.player"  ng-show="player.visible" data-toggle="game_SMC_tooltip" data-placement="right" title="ID:{{player.uId}}"
+                    style="list-style: none;width: 100%;color:{{player.color}}">
+                        <span style="width: 40%;display: inline-block">
+                            <i style="font-size: 10px;width: 10px;float: left;margin: 5px;" ng-class="player.icon"></i>
+                            <span class="text-right;" ng-bind="player.uName">
+                        </span>
+                        </span>
+                    <span style="width: 30%;display: inline-block;margin-left:-5px" class="text-left" ng-bind="player.score"></span>
+                    <span style="width: 30%;display: inline-block;margin-left:-5px" class="text-left" ng-bind="player.tips"></span>
+                </li>
+            </td>
+            <td  class="text-center" style="vertical-align:middle;">
+
+                <ul class="text-left">
+                    <li ng-repeat="(key,xjs) in info.xjsInfo">
+                        第{{(key+1)}}小局:
+                        <code ng-repeat="user in xjs.jsInfo">
+                            <span ng-bind="user.openName"></span>
+                            <span ng-bind="user.score"></span>分
+                        </code>
+                        <a target="_blank" href='{{info.fileUrl+"-"+(key+1)+".txt"}}'>回放文件</a>
+                    </li>
+                </ul>
+                <label class="glyphicon glyphicon-repeat" ng-click="loadInfo(info);"></label>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">--我是有底线的哦--</p>
+</div>

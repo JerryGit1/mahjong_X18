@@ -1,0 +1,77 @@
+<div ng-controller="game_SMCtrl">
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--添加系统公告-->
+    <div  class="widget orange" style="width: 100%;min-height: 0;">
+        <div class="widget-title">
+            <h4><i class="glyphicon glyphicon-th-list my_font4"></i> 发布消息</h4>
+            <span class="tools my_font3">
+                  <i data-toggle="collapse"  data-target="#table_1" class="glyphicon glyphicon-menu-down"></i>
+            </span>
+        </div>
+        <div  class="widget-body collapse in" style="padding: 0;" id="table_1">
+            <div class="text-left" style="padding: 25px;">
+                <div class="add_gameSM" style="height: 110px;">
+                    <div>
+                        <div>
+                            <div>
+                                <i style="vertical-align: top;">系统消息:</i>
+                                <textarea ng-model="new_content" style="width: 80%;" maxlength="200"  class="my_font3" placeholder="200字符以内"></textarea>
+                            </div>
+                            <div>
+                                <i style="vertical-align: top;">联系我们:</i>
+                                <textarea ng-model="new_as" style="width: 80%;"  maxlength="100" class="my_font3" placeholder="100字符以内"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button ng-click="addInfo()" class="btn btn-success glyphicon glyphicon-bullhorn"> 发布</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--列表-->
+    <div  class="widget" style="width: 100%;min-height: 0;">
+        <div class="widget-title">
+            <h4><i class="glyphicon glyphicon-th-list my_font4"></i> 历史记录</h4>
+            <span class="tools my_font3">
+                  <i data-toggle="collapse"  data-target="#table_2" class="glyphicon glyphicon-menu-down"></i>
+            </span>
+        </div>
+        <div  class="widget-body collapse in" style="padding: 0;" id="table_2">
+            <div class="text-center" style="padding: 0px;">
+                <div style="margin-bottom: 40px;">
+                    <table class="table table-bordered" style="table-layout:fixed;">
+                        <thead>
+                        <tr role="row" class="my_table_tr" ng-class="table_class">
+                            <th style="width: 25px;border-bottom-width:0;">序列</th>
+                            <th style="width: 400px;border-bottom-width:0;">内容</th>
+                            <th style="width: 50px;border-bottom-width:0;">添加时间</th>
+                            <th style="width: 50px;border-bottom-width:0;">添加者</th>
+                            <th style="width: 50px;border-bottom-width:0;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-repeat-end="{{renderFinish()}}">
+                        <tr ng-repeat="info in list" ng-class="info.class">
+                            <td ng-bind="info.num" class="text-center" style="vertical-align:middle;"></td>
+                            <td class="auto_line" ng-bind="info.content"></td>
+                            <td ng-bind="info.createTime" style="vertical-align:middle;"></td>
+                            <td ng-bind="info.userName" style="vertical-align:middle;"></td><!--还要附加id 便于查询-->
+                            <td class="table_btn_tool" style="vertical-align:middle;">
+                                 <span ng-click="deleteInfo(info.id)" data-toggle="game_SMC_tooltip" data-placement="top" title="删除这条公告">
+                                       <i  class="my_font3 glyphicon glyphicon-trash text-danger"></i>
+                                 </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">--我是有底线的哦--</p>
+    <!--翻页按钮组件-->
+    <pageing-tool-nav></pageing-tool-nav>
+
+</div>

@@ -1,0 +1,24 @@
+<div ng-controller="loginPcCtrl" style="width: 100%;height: 100%;background: url('image/login_back.jpg') no-repeat;background-size:100% 100%;">
+    <div id="loginBackDiv"  class="GM_back_1" style="width: 100%;height: 100%;">
+
+    </div>
+    <div id="loginDiv" style="box-shadow:0px 0px 10px rgba(0,0,0,.5);top:0;border-radius: 3px; display: inherit; opacity: 0; width: 300px; position: absolute; height: auto; background: rgb(255, 255, 255); padding: 16px 0px 20px; left: 427px">
+        <p  style="width: 80%;margin:6px 10% 23px 10%;font-weight: bold;font-size: 1.8rem;" ng-bind="name"></p>
+        <img style="width:110px;height: 110px;margin:5px 90px;background-color: #15afef;border-radius: 50%; " ng-src="{{logo_img}}">
+        <div  style="background-color: #ffffff;width: 90%;border-radius: 0 0 10px 10px;margin:20px 5% 6px 5%;height: 43px;">
+            <label class="glyphicon glyphicon-user"  style="margin-left: 10px;margin-top: 5px;color: #aaaaaa">
+            </label>
+            <input ng-change="inputChange()" ng-model="userName" maxlength="15" style="outline:none; font-size:1.2rem;border: none;width: 80%;margin-left: 10px;border-bottom: 1px solid #cccccc" placeholder="输入个名字呗">
+        </div>
+        <div style="background-color: #ffffff;width: 90%;border-radius: 0 0 10px 10px;margin:2px 5% 0 5%">
+            <label class="glyphicon glyphicon-lock"  style="margin-left: 10px;margin-top: 0px;color: #aaaaaa;">
+            </label>
+            <input ng-keyup="login($event)" ng-change="inputChange()" ng-model="passwd" type="password" maxlength="20" style="outline:none; font-size:1.2rem;border: none;width: 80%;margin-left: 10px;border-bottom: 1px solid #cccccc" placeholder="输入个密码呗">
+        </div>
+        <!--提示-->
+        <p ng-bind="tips" style="color: #cc0000;width: 100%;text-align: center;margin:5px 0 2px 0;font-size: 1rem;height: 1.1rem;"></p>
+        <button  class="btn GM_back_2"  ng-click="login();" style="border-radius: 1px;width: 70%;margin-left: 15%;margin-top: 18px;color: #fff;">登录</button>
+        <!--改密码-->
+        <p  style="cursor:pointer;width: 100%;text-align: center;font-size: 12px;color: #15afef;margin: 20px 0 5px 0;text-decoration:underline">修改密码</p>
+    </div>
+</div>

@@ -1,0 +1,262 @@
+<div ng-controller="consoleIndexCtrl">
+    <!--导航栏-->
+    <router-nav class="pc_add">
+    </router-nav>
+    <!--管理中心--><!--刚改的-->
+    <div  class="widget" style="width:100%;min-height: 0;background-image:url('image/man_bg_img.jpg');background-size:100%;border:none;min-width:1000px;">
+        <div  class="widget-body collapse in" style="padding: 0;min-width:1000px;" id="player_userInfo_1">
+            <div class="text-center" style="padding: 25px;height:450px;min-width:1000px;position: relative;">
+                <div style="display: inline-block;width:150px;vertical-align: top;color:#fff;">
+                    <img ng-src="{{userHead}}" style="width: 100px;height: 100px;border-radius: 50%;margin-bottom:5px;border:1px solid #ccc;padding:2px;background: #fff;">
+                    <br>
+                    <span class="my_font4" style="margin-top:100px;">
+                        <span ng-bind="userName"></span>
+                        <span class="label label-info my_font1" style="padding:2px;" ng-bind="levelInfo.name"></span>
+                    </span>
+                </div>
+                <!--数据统计-->
+                <div class="row" style="color:#fff;margin-top:30px;">
+                        <!--个人信息-->
+                    <div class="col-lg-3 col-md-3 col-sm-6" style="margin-bottom:20px;">
+                            <p style="color:#fff;font-size: 18px;font-weight: 400;text-align: left;width:100px;height:20px;margin-left:20px;">
+                                <span><img src="image/man.png" style="width:18px;height:18px;margin-bottom:3px;"></span>
+                                个人信息
+                            </p>
+                            <!--一堆个人信息-->
+                            <div style="float:left;margin-left:45px;margin-top:10px;">
+                                <!--等级-->
+                                <div style="margin:6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="账号等级">
+                                    等级：
+                                    <span ng-bind="levelInfo.name"></span>
+                                </span>
+                                </div>
+                                <!--ID-->
+                                <div style="margin:0 0 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="用户ID">
+                                    ID(邀请码)：
+                                    <span class="my_font3" ng-bind="userId"></span>
+                                </span>
+                                </div>
+                                <!--手机号-->
+                                <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="手机号">
+                                    手机：
+                                    <span ng-bind="phone"></span>
+                                </span>
+                                </div>
+                                <!--房卡-->
+                                <div style="margin-bottom: 16px;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="账户剩余 房卡/钻石/财富/金币/元宝">
+                                    账户{{money_name}}：
+                                    <span class="my_font4" ng-bind="userTreasure"></span> 张
+                                </span>
+                                </div>
+                                <!--总投入-->
+                                <div style="margin:0 0 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总投入">
+                                    投入{{money_name}}:
+                                    <span ng-bind="adminPayTotalMoney?adminPayTotalMoney:0"></span>张
+                                </span>
+                                </div>
+                                <!--给代理金额-->
+                                <div style="margin:0 0 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总购买">
+                                    购买{{money_name}}:
+                                    <span ng-bind="userMaxBuyMoney?userMaxBuyMoney:0"></span>张
+                                </span>
+                                </div>
+                                <!--给玩家的充值的money-->
+                                <div style="margin:0 0 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="给玩家的充值的money">
+                                    出售{{money_name}}:
+                                    <span>{{sell_player_money+sell_agency_money}}</span>张
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--玩家数据-->
+                    <div class="col-lg-3 col-md-3 col-sm-6" style="margin-bottom:20px;">
+                        <p style="color:#fff;font-size: 18px;font-weight: 400;text-align: left;width:100px;height:20px;margin-left:20px;">
+                            <span><img src="image/data.png" style="width:18px;height:18px;margin-bottom:3px;"></span>
+                            玩家数据
+                        </p>
+                        <!--一堆新增数据 -->
+                        <div style="float:left;margin-left:45px;margin-top:10px;">
+                            <div style="margin:0 0 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总玩家">
+                                    总玩家：
+                                    <span ng-bind="maxUserNum?maxUserNum:node_str"></span>
+                                </span>
+                            </div>
+                            <!--日新增-->
+                            <div style="margin:6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="日新增">
+                                    日新增：
+                                    <!--<i ng-class="levelInfo.icon" style="font-size:15px;margin-right: 5px;color: #ddd"></i>-->
+                                    <span ng-bind="dayNewAddUserNum?dayNewAddUserNum:node_str"></span>
+                                </span>
+                            </div>
+                            <!--周新增-->
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="本周新增">
+                                    本周新增：
+                                    <span ng-bind="weekNewAddUserNum?weekNewAddUserNum:node_str"></span>
+                                </span>
+                            </div>
+                            <!--月新增-->
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="本月新增">
+                                    本月新增：
+                                    <span ng-bind="monthNewAddUserNum?monthNewAddUserNum:node_str"></span>
+                                </span>
+                            </div>
+                            <!--总充值-->
+                            <div style="margin:6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总充值房卡">
+                                    总充值房卡：
+                                    <span ng-bind="userPayTotalMoney?userPayTotalMoney:node_str"></span>
+                                </span>
+                            </div>
+                            <!--总消费-->
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总消费房卡">
+                                    总消费房卡：
+                                    <span ng-bind="userConsumeTotalMoney?userConsumeTotalMoney:node_str"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                        <!--代理数据-->
+                    <div class="col-lg-3 col-md-3 col-sm-6" style="margin-bottom:20px;">
+                        <!--个人信息标题-->
+                        <p style="color:#fff;font-size: 18px;font-weight: 400;text-align: left;width:100px;height:20px;margin-left:20px;">
+                            <span><img src="image/maney.png" style="width:18px;height:18px;margin-bottom:3px;"></span>
+                            代理数据
+                        </p>
+                        <!--一堆个人信息-->
+                        <div style="float:left;margin-left:45px;margin-top:10px;">
+
+                            <div style="margin:0 0 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总代理">
+                                    总代理：
+                                    <!--<i class="glyphicon glyphicon-magnet" style="font-size:15px;margin-right: 5px;color: #ddd"></i>-->
+                                    <span ng-bind="maxUserAgency?maxUserAgency:node_str"></span>
+                                </span>
+                            </div>
+                            <div style="margin:6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="日新增">
+                                    日新增：
+                                    <span ng-bind="dayNewAddUserAgency?dayNewAddUserAgency:node_str"></span>
+                                </span>
+                            </div>
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="本周新增">
+                                    本周新增：
+                                    <span ng-bind="weekNewAddUserAgency?weekNewAddUserAgency:node_str"></span>
+                                </span>
+                            </div>
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="本月新增">
+                                    本月新增：
+                                    <span ng-bind="monthNewAddUserAgency?monthNewAddUserAgency:node_str"></span>
+                                </span>
+                            </div>
+                            <div style="margin:6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总充值房卡">
+                                    总充值房卡：
+                                    <span ng-bind="agencyAllPayManey?agencyAllPayManey:node_str"></span>
+                                </span>
+                            </div>
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="总消费房卡">
+                                    总消费房卡：
+                                    <span ng-bind="agencyAllExpense?agencyAllExpense:node_str"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                        <!--留存数据-->
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <!--个人信息标题-->
+                        <p style="color:#fff;font-size: 18px;font-weight: 400;text-align: left;width:100px;height:20px;margin-left:20px;">
+                            <span>
+                                <img src="image/xiang.png" style="width:18px;height:18px;margin-bottom:3px;">
+                            </span>
+                            留存数据
+                        </p>
+                        <!--一堆个人信息-->
+                        <div style="float:left;margin-left:45px;margin-top:10px;">
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="次日留存率">
+                                    次日留存率：
+                                    <span>暂无</span>
+                                </span>
+                            </div>
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="三日留存率">
+                                    三日留存率：
+                                    <span>暂无</span>
+                                </span>
+                            </div>
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="七日留存率">
+                                    七日留存率：
+                                    <span>暂无</span>
+                                </span>
+                            </div>
+                            <div style="margin: 6px 0;height: 20px;text-align: left;font-size: 12px;">
+                                <span data-toggle="console_tooltip" data-placement="right" title="三十日留存率">
+                                    三十日留存率：
+                                    <span>暂无</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="my_font1" style="position:absolute;bottom:12px;right:26px;color:rgba(255,255,255,0.4);">
+                    该统计截止到昨日，今日统计数据将在明日显示
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--统计1-->
+    <div class="pc_add" >
+        <!--日活跃-->
+        <div style="width: 100%;margin-right: 1%;float: left" ng-controller="statisticsDayActiveCtrl">
+            <div statistical-broken class="widget">
+            </div>
+        </div>
+        <!--在线统计-->
+        <div style="width: 100%;margin-right: 1%;float: left" ng-controller="statisticsOnlineCtrl">
+            <div statistical-broken class="widget blue">
+            </div>
+        </div>
+        <!--登录统计-->
+        <div style="width: 50%;margin-right: 1%;float: left" ng-controller="statisticsUserLoginCtrl">
+            <div statistical-broken class="widget ">
+            </div>
+        </div>
+        <!--分享统计-->
+        <div style="width: 49%;float: left" ng-controller="statisticsShareCtrl">
+            <div statistical-broken class="widget green">
+            </div>
+        </div>
+        <!--代理购买(房卡)统计-->
+        <div style="width: 50%;float: left;margin-right: 1%;" ng-controller="statisticsBuyCtrl">
+            <div statistical-broken class="widget green">
+            </div>
+        </div>
+        <!--玩家充值(房卡)统计-->
+        <div style="width: 49%;float: left" ng-controller="statisticsPayCtrl">
+            <div statistical-broken class="widget orange">
+            </div>
+        </div>
+        <!--玩家消费(房卡)/代开消费统计-->
+        <div style="width: 100%;float: left" ng-controller="statisticsConsumeCtrl">
+            <div statistical-broken class="widget blue">
+            </div>
+        </div>
+    </div>
+</div>

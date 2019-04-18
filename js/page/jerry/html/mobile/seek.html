@@ -1,0 +1,71 @@
+<div ng-controller="jerry_seekCtrl" class="GM_back_3">
+    <div style="height:38px;width:100%;"></div>
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--管理员详情-->
+    <div class="j_user_module">
+        <!--<img src="image/p_title.png">-->
+        <div>
+            <ul class="j_user_fun_ul">
+
+                <li class="j_user_fun_li text-left" style="margin-bottom: 0;">
+                    <p class="title my_font3">代理商个人信息</p>
+                    <div class="text-left row">
+                        <!--头像-->
+                        <div  class="text-center col-xs-3">
+                            <img ng-src="{{user_info.head?user_info.head:'image/head/2.png'}}" style="width: 80px;height: 80px;border-radius: 50%;">
+                            <!--<button ng-click="lookUserInfo()" class="btn btn-primary" style="padding: 5px 10px;margin-top: 10px;">详情</button>-->
+                        </div>
+                        <div class="col-xs-8" style="display: inline-block">
+                            <h4 script="col">
+                                <span>{{get_name(user_info.userName?user_info.userName:"昵称")}}</span>
+                            </h4>
+                            <p class="text-muted" style="margin: 5px 0 0 0">ID:<span ng-bind="user_info.id"></span></p>
+                            <p class="text-muted" style="margin:0"><span ng-bind="money_name"></span> : <span  style="font-weight: bold;color: #ff0000;" ng-bind="user_info.money"></span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="j_user_fun_li text-left" style="padding-top:15px;margin-bottom: 0px;">
+                    <p class="title my_font3">俱乐部信息</p>
+                        <div ng-repeat="info in leaveList.clubs" class="panel panel-default" style="margin-top:15px;border:1px solid #ccc;margin-bottom:10px;" >
+                        <div class="panel-body" style="position:relative;padding-top:4px;padding-left:5px;">
+                            <p class="my_font1" style="color:#666;text-align:center;width:100%;margin-bottom:2px;font-size:17px;font-weight: 800;">
+                                <span ng-bind="info.clubName"></span>
+                            </p>
+                            <p class="my_font2" style="margin:0px;">基础信息:</p>
+                            <!--库存-->
+                            <div style="padding:0 12px;">
+                                <div class="row">
+                                    <div class="my_font1 col-sm-6 col-xs-6" ng-hide="info.hie" style="color:#666;line-height:20px;margin-top:2px;">
+                                        库存:<span ng-bind="info.lastMoney"></span> <span class="my_font2">/</span> 预警<span ng-bind="info.yuJing"></span>
+                                    </div>
+                                    <div class="my_font1 col-sm-6 col-xs-6" ng-hide="info.hie" style="color:#666;line-height:20px;margin-top:2px;">
+                                        日消耗限额:<span ng-bind="info.xiane"></span>
+                                    </div>
+                                    <div class="my_font1 col-sm-6 col-xs-6" style="color:#666;line-height:20px;margin-top:2px;">
+                                        群人数:<span ng-bind="info.allPerson"></span>人
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my_font2" style="margin:8px 0 0 0 ;">
+                                消费类型:
+                                <span class="my_font1" ng-hide="info.hie" style="color:#666;line-height:20px;margin-top:2px;">
+                                    <span ng-show="info.sow">包月/包周模式 (截止:<span ng-bind="info.FE"></span>到期)</span>
+                                    <span ng-hide="info.sow">正常模式(消耗房卡)</span>
+                                </span>
+                            </div>
+                            <div style="padding:0 6px;">
+                                <div style="margin-top: 5px;">
+                                    <button class="btn btn-success" style="width: 100%;margin: 3px;"  ng-click="enter(1,info.clubId,'包周')">续 <span ng-bind="info.FE_week"></span> (包周)</button>
+                                    <button class="btn btn-success" style="width: 100%;margin: 3px;" ng-click="enter(2,info.clubId,'包月')">续 <span ng-bind="info.FE_month"></span> (包月)</button>
+                                    <button class="btn btn-primary" style="width: 100%;margin: 3px;"  ng-click="cancel(ball,info.clubId)">切换 正常模式 (耗卡)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p ng-hide="hide" style="width: 100%;text-align: center;color: #ccc;margin-top:10px;" class="my_font2">暂时还没有俱乐部信息喔！！</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

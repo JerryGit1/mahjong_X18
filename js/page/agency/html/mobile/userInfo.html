@@ -1,0 +1,57 @@
+<div ng-controller="agency_userInfoCtrl" class="GM_back_3">
+    <!--基本信息-->
+    <img src="image/a_title.png" style="width: 110%;height:277px;position: absolute;left: -10px;">
+    <div style="position: absolute;top:50px;left: 0;width: 100%;">
+        <!--基础信息-->
+        <div  style="width: 100%;">
+            <div class="text-center">
+                <!--头像-->
+                <div style="display: inline-block;width: 100px;height:160px;vertical-align: top;">
+                    <img ng-src="{{userInfo.head?userInfo.head:'image/head/2.png'}}"  style="background:#13332E;width: 100px;height: 100px;border-radius: 50%;padding: 6px;border: 1px solid #96B190">
+                    <div>
+                        <h4 class="my_font4" style="width:100%;font-weight: bold;color: #000;margin:6px 0 0 0" ng-bind="userInfo.userName"></h4>
+                        <span class="label label-info"  ng-bind="userInfo.levelName"></span>
+                    </div>
+                </div>
+                <!--昵称 iD 房卡-->
+                <div class="row" style="width: 96%;margin-left:2%;margin-top:40px;background: #fff;padding: 8px 0;border-radius: 1px;box-shadow: 0 0 5px #ccc">
+                    <div class="col-xs-3" style="border-right: 1px solid #eee">
+                        <b class="my_font3"  ng-bind="userInfo.id"></b>
+                        <p class="my_font2" style="color: #999;margin: 5px 0 0 0">ID</p>
+                    </div>
+                    <div class="col-xs-3" style="border-right: 1px solid #eee">
+                        <b class="my_font3" ng-bind="userInfo.money?userInfo.money:0"></b>
+                        <p class="my_font2" style="color: #999;margin: 5px 0 0 0">总{{money_name}}</p>
+                    </div>
+                    <div class="col-xs-3" style="border-right: 1px solid #eee">
+                        <b class="my_font3" ng-bind="userInfo.buyMoney?userInfo.buyMoney:0"></b>
+                        <p class="my_font2" style="color: #999;margin: 5px 0 0 0">购买{{money_name}}</p>
+                    </div>
+                    <div class="col-xs-3">
+                        <b class="my_font3" ng-bind="userInfo.total_sell?userInfo.total_sell:0"></b>
+                        <p class="my_font2" style="color: #999;margin: 5px 0 0 0">出售{{money_name}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--openId 注册时间-->
+            <div class="text-left" style="margin-left: 20px;margin-top: 20px;">
+                <div>
+                    <b>手机号</b>：<span class="my_font3" ng-bind="userInfo.phone"></span>
+                </div>
+                <div>
+                    <b>最近登录时间</b>：<span class="my_font3" ng-bind="userInfo.newTime"></span>
+                </div>
+                <div>
+                    <b>最近登录IP</b>：<span class="my_font3" ng-bind="userInfo.login_ip"></span>
+                </div>
+                <div>
+                    <b>注册时间</b>：<span class="my_font3" ng-bind="userInfo.createTime"></span>
+                </div>
+            </div>
+            <div style="position: absolute;top:80px;right: 20px;">
+                <button ng-click="pay();" class="btn btn-success" >充值</button><br>
+                <!--<button ng-click="setBlackState();" class="btn btn-danger" ng-bind="blackBtnName">加入黑名单</button>-->
+            </div>
+        </div>
+    </div>
+</div>

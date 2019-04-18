@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临时版本更新平台</title>
+    <style>
+        body,html{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 950px;height: 95%;margin: 1%;float: left">
+    <div style="width: 48%;height: 100%;float: left">
+        <span style="font-size: 12px;">本地版本：</span>
+        <textarea id="my_textarea" style="width:100%;height: 95%;">
+
+        </textarea>
+    </div>
+    <div style="width: 48%;height: 100%;float: left;margin-left: 2%">
+        <span style="font-size: 12px;">线上版本：</span>
+        <textarea id="line_textarea" style="width:100%;height: 95%;">
+
+        </textarea>
+    </div>
+
+</div>
+
+<div style="float: left;margin: 1%">
+    <div style="font-size: 12px;">
+        <span>备注：</span><br>
+        <span>1.左侧内容版本号从上往下递减 越往上版本越高</span><br>
+        <span>2.<span style="font-size: 16px;color: #00cc00">v</span> 表示版本号 0.0.0 格式</span><br>
+        <span>3.<span style="font-size: 16px;color: #00cc00">time</span> 表示发布时间</span><br>
+        <span>4.<span style="font-size: 16px;color: #00cc00">name</span> 表示此版本代号 可以根据兴趣自己起</span><br>
+        <span>5.<span style="font-size: 16px;color: #00cc00">add</span> 表示新增功能 前缀要添加个人标识<span style="color: #ff0000">-zpb -tyq -hyh</span></span><br>
+        <span>6.<span style="font-size: 16px;color: #00cc00">repair</span> 表示修复的bug 前缀要添加个人标识<span style="color: #ff0000">-zpb -tyq -hyh</span></span><br>
+        <span>7.本地版本可在外部 version.json文件编辑这格式不会出错</span><br>
+    </div>
+    <p id="l_tips" style="background: #444;color: #fff;padding: 5px;"></p>
+    <p id="o_tips" style="background: #333;color: #fff;padding: 5px;"></p><br>
+    <button onclick="saveInfo();" style="background: #4fa1fe;border: none;color: #fff;padding: 2% 3%;margin-top: 5%;">提交本地版本</button>
+</div>
+</body>
+<script>
+
+    function service(url,data,backFun) {
+        var obj = new XMLHttpRequest();
+        obj.open("POST", url, true);
+        obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8"); // 发送信息至服务器时内容编码类型
+        obj.onreadystatechange = function () {
+            if (obj.readyState == 4 && (obj.status == 200 || obj.status == 304)) {  // 304未修改
+                if(obj.responseText){
+                    data=JSON.parse(obj.responseText);
+                    if(data&&data.state){
+                        backFun(data.info);
+                    }else{
+                        alert(data.message);
+                    }
+                }
+            }
+        }
+        obj.send(data);
+    }
+    function getInfo(backFun) {
+        var obj = new XMLHttpRequest();
+        obj.open("POST", "version.json", true);
+        obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8"); // 发送信息至服务器时内容编码类型
+        obj.onreadystatechange = function () {
+            if (obj.readyState == 4 && (obj.status == 200 || obj.status == 304)) {  // 304未修改
+                if(obj.responseText){
+                    backFun(obj.responseText);
+                }
+            }
+        }
+        obj.send();
+    }
+    function saveInfo() {
+        var str=my_textarea.innerHTML;
+        if(confirm("确认更新?")){
+            str=JSON.parse(str);
+            if(str){
+                str=(JSON.stringify(str));
+                var data="p_name="+p_name+"&v_name="+currentNewVersion+"&desc="+str;
+                service(host+"gmserver/open/us.version.insert.html",data,function () {
+                    alert("修改成功");
+                    updateOnLineInfo();
+                });
+            }else{
+                alert("格式有误");
+            }
+
+        }
+    }
+
+
+    var my_textarea=document.getElementById("my_textarea");
+    var line_textarea=document.getElementById("line_textarea");
+    var l_tips=document.getElementById("l_tips");
+    var o_tips=document.getElementById("o_tips");
+    var currentNewVersion="";
+    var p_name="AH2.0_outBoxGM";
+    var host="http://www.aoh5.com/";
+    //var host="http://192.168.1.21:8080/";
+    /*获取本地版本*/
+    getInfo(function (str) {
+        my_textarea.innerHTML=JSON.stringify(JSON.parse(str),null,4);
+        var data=JSON.parse(str);
+        currentNewVersion=data[0].v;
+        l_tips.innerHTML="当前本地最新版本为  <span style='color: rgba(229,147,33,0.58)'>"+currentNewVersion+"</span>";
+    });
+
+    function updateOnLineInfo() {
+        /*获取最新版本*/
+        service(host+"gmserver/open/us.version.get.html","p_name="+p_name,function (data) {
+            line_textarea.innerHTML=JSON.stringify(JSON.parse(data.description),null,4);
+            o_tips.innerHTML="当前线上最新版本为  <span style='color:#00cc00'>"+data.version_name+"</span>";
+        });
+    }
+    updateOnLineInfo();
+
+</script>
+</html>

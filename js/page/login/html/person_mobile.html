@@ -1,0 +1,27 @@
+<div ng-controller="login_person_mobileCtrl"  style="width: 100%;height: 100%;">
+    <div id="login_m_back" class="my_img_blur" style="width:120%;height:120%;float:left;top:-10%;left:-10%;position:absolute;background: url('image/login_back_m.png') no-repeat;background-size:100% 100%;">
+
+    </div>
+    <div style="position: fixed;width: 100%;height: 100%;" class="text-center">
+        <div style="margin-top: 10%;">
+            <img class="my_box_size" style="width:110px;height: 110px;background-color: #fff;padding:2px;border-radius: 50%;border: 1px solid #ccc " ng-src="{{logo_img}}">
+            <p ng-bind="name" style="font-size: 15px;color: #fff;margin-top: 10px;"></p>
+        </div>
+        <div style="margin-top: 20%">
+            <div  style="background-color:rgba(250,250,250,.4);width: 90%;margin:20px 5% 0px 5%;height: 45px;line-height: 42px;border-radius: 8px 8px 0 0;">
+                <label class="glyphicon glyphicon-user"  style="margin-left: 10px;margin-top: 5px;color: #aaaaaa">
+                </label>
+                <input ng-change="inputChange()" ng-model="userName" maxlength="15" style="background:none;outline:none;padding: 0; font-size:1.4rem;border: none;width: 80%;margin-left: 10px;" placeholder="输入个名字呗">
+            </div>
+            <div style="border-top:3px solid rgba(180,180,180,.6);width: 90%;margin:0 5% 0 5%;"></div>
+            <div style="background-color:rgba(250,250,250,.4);width: 90%;margin:0 5% 6px 5%;height: 45px;line-height: 42px;padding-bottom: 10px;border-radius: 0 0 8px 8px;">
+                <label class="glyphicon glyphicon-lock"  style="margin-left: 10px;margin-top: 0px;color: #aaaaaa;">
+                </label>
+                <input ng-keyup="login($event)" ng-change="inputChange()" ng-model="passwd" type="password" maxlength="20" style="background:none;padding: 0; outline:none; font-size:1.4rem;border: none;width: 80%;margin-left: 10px;" placeholder="输入个密码呗">
+            </div>
+        </div>
+        <!--提示-->
+        <p ng-bind="tips" style="color: #cc0000;width: 100%;text-align: center;margin:5px 0 2px 0;font-size: 1.2rem;height: 1.1rem;"></p>
+        <button  class="btn"  ng-click="login();" style="background-color:#3399FE;border-radius: 1px;width: 90%;margin-top: 20px;color: #fff;line-height: 45px;padding: 0;font-size: 1.5rem;opacity: .8;">登录</button>
+    </div>
+</div>

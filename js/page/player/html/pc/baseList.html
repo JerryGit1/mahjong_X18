@@ -1,0 +1,38 @@
+<div style="margin-bottom: 40px;">
+    <table class="table my_table" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width:50px;border-bottom-width:0;text-align:center;">序号</th>
+            <th style="width:150px;border-bottom-width:0;">个人信息</th>
+            <th style="width: 150px;border-bottom-width:0;">总{{money_name}}</th>
+            <th style="width: 150px;border-bottom-width:0;">注册时间</th>
+            <th style="width: 150px;border-bottom-width:0;">账号状态</th>
+            <th style="width: 150px;border-bottom-width:0;">操作</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat-end="{{renderFinish()}}">
+        <tr ng-repeat="info in list" >
+            <td class="text-center" ng-bind="page_num*current_page-page_num+1+$index">1</td> <!--每页数量*当前页-每页数量+1+$index-->
+            <td style="display:flex;">
+                <div style="float:left;box-flex:1;">
+                    <img class="p_user_head " ng-src="{{info.head?info.head:'image/head/2.png'}}">
+                </div>
+                <div style="float:left;margin:5px 0 0 20px;">
+                    <p ng-bind="info.userName" class="text-primary my_font3" style="box-flex:2;font-weight: bold;margin:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+                    ID:<span ng-bind="info.id"></span>
+                </div>
+            </td>
+            <!--<td ng-bind="info.openId"></td>-->
+            <td ng-bind="info.money" style="margin:auto;"></td>
+            <td ng-bind="info.createTime"></td>
+            <td ng-bind="info.stateName"></td>
+            <td class="table_btn_tool" style="vertical-align:middle;">
+                <span ng-click="userInfo(info.id)" data-toggle="game_SMC_tooltip" data-placement="top" title="查看详情">
+                    <i  class="my_font3 glyphicon glyphicon-cog text-primary"></i>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">--我是有底线的哦--</p>
+</div>

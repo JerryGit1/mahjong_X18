@@ -1,0 +1,31 @@
+<div style="margin-bottom: 40px;">
+    <table class="table my_table" style="table-layout:fixed;">
+        <thead>
+        <tr role="row" class="my_table_tr" ng-class="table_class">
+            <th style="width:50px;border-bottom-width:0;text-align:center;">序号</th>
+            <th style="width: 150px;border-bottom-width:0;">个人信息</th>
+            <th style="width: 150px;border-bottom-width:0;">消费{{money_name}}</th>
+            <th style="width: 150px;border-bottom-width:0;">消费时间</th>
+            <!--<th style="width: 150px;border-bottom-width:0;">房间号</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="info in list">
+            <td ng-bind="info.num" class="text-center"></td>
+            <td>
+                <div style="float:left;">
+                    <img class="p_user_head " ng-src="{{info.head}}">
+                </div>
+                <div style="float:left;margin:5px 0 0 20px;">
+                    <p ng-bind="info.userName" class="text-primary my_font3" style="font-weight: bold;margin:0;"></p>
+                    ID:<span ng-bind="info.uId"></span>
+                </div>
+            </td>
+            <td ng-bind="info.money"></td>
+            <td ng-bind="info.createTime"></td>
+            <!--<td ng-bind="info.type"></td>-->
+        </tr>
+        </tbody>
+    </table>
+    <p style="width: 100%;text-align: center;color: #ccc;" class="my_font2">--我是有底线的哦--</p>
+</div>

@@ -1,0 +1,119 @@
+<div ng-controller="agency_userInfoCtrl">
+    <!--导航栏-->
+    <router-nav> </router-nav>
+    <!--基本信息-->
+    <div  class="widget" style="width:100%;min-height: 0;background-image:url('image/bgimg.jpg');background-size:100%;border:none;">
+        <!--<div class="widget-title">-->
+        <!--<h4><span class="glyphicon glyphicon-th-list my_font4"></span> 基础信息</h4>-->
+        <!--<span class="tools my_font3">-->
+        <!--<span data-toggle="collapse"  data-target="#player_userInfo_1" class="glyphicon glyphicon-menu-down"></span>-->
+        <!--</span>-->
+        <!--</div>-->
+        <div  class="widget-body collapse in" style="padding: 0;" id="player_userInfo_1">
+            <div class="text-center" style="padding: 25px;">
+                <div class="text-left">
+                    <div style="float: right;">
+                        <button ng-click="pay();" class="btn btn-success" >充值</button>
+                        <!--设置为测试账号作用：方便统计项目筛选出测试代理-->
+                        <button ng-click="set_up_test_agency(0)" class="btn btn-danger" ng-hide="show">设为测试代理</button>
+                        <button ng-click="set_up_test_agency(1)" class="btn btn-default" style="background: #000;color:#fff;border:none;" ng-show="show">改为正常代理</button>
+                    </div>
+                    <!--头像-->
+                    <div style="display: inline-block;width: 110px;height:110px;vertical-align: top;margin-left:45%;">
+                        <img ng-src="{{userInfo.head}}" style="width: 100px;height: 100px;border-radius: 50%;border:1px solid #ccc;padding:2px;background: #fff;">
+                    </div>
+                    <!--用户id-->
+                    <!--昵称-->
+                    <!--房卡总数-->
+                    <!--注册时间-->
+                    <!--游戏总局数-->
+                    <div style="display: inline-block;width:20%;margin-left:45%;color:#fff;">
+                        <span class="my_font4"><span ng-bind="userInfo.userName"></span></span>
+                        <span class="label label-info" ng-bind="userInfo.levelName"></span>
+                    </div>
+                    <div class="row" style="color:#fff;margin-top:10px;">
+                        <div class="col-lg-2"><span> <b>ID(邀请码):　</b> </span><span ng-bind="userInfo.id"></span></div>
+                        <div class="col-lg-2"><span><b>{{money_name}}:</b>　</span><span class="text-danger" ng-bind="userInfo.money"></span></div>
+                        <div class="col-lg-2"><span> <b>注册时间:</b>　</span><span ng-bind="userInfo.createTime"></span></div>
+                        <p class="col-md-5 col-lg-5">最近登录时间:<span ng-bind="userInfo.newTime"></span></p>
+                        <p class="col-md-5 col-lg-5">最近登录IP:<span ng-bind="userInfo.login_ip"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--最近购买房卡记录 前 50条-->
+    <div  class="widget blue" style="width: 100%;min-height: 0;">
+        <div class="widget-title">
+            <h4><i class="glyphicon glyphicon-th-list my_font4"></i> 最近购买记录</h4>
+            <span class="tools my_font3">
+                  <i data-toggle="collapse"  data-target="#player_userInfo_2" class="glyphicon glyphicon-menu-down"></i>
+                  <i ng-click="lookMore(1)" data-toggle="game_SMC_tooltip" data-placement="top" title="查看更多">
+                      <i class="glyphicon glyphicon-zoom-in"></i>
+                  </i>
+            </span>
+        </div>
+        <div  class="widget-body collapse in" style="padding: 0;" id="player_userInfo_2">
+            <div  class="text-center userInfo_list">
+                <table class="table table-bordered" style="table-layout:fixed;margin-bottom: 0;">
+                    <thead>
+                    <tr role="row" class="my_table_tr" ng-class="table_class">
+                        <th style="width: 55px;border-bottom-width:0;">编号</th>
+                        <th style="width: 100px;border-bottom-width:0;">代理商</th>
+                        <th style="width: 100px;border-bottom-width:0;">{{money_name}}</th>
+                        <th style="width: 80px;border-bottom-width:0;">购买时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="info in buyInfo" ng-class="info.class">
+                        <td ng-bind="info.num" class="text-center"></td>
+                        <td>
+                            <span ng-bind="info.userName" data-toggle="game_SMC_tooltip"  data-placement="right" title="ID:{{info.a_uId}}"></span>
+                        </td>
+                        <td ng-bind="info.money"></td>
+                        <td ng-bind="info.createTime"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--最近给用户充值记录 前 30条-->
+    <div  class="widget green" style="width: 100%;min-height: 0;">
+        <div class="widget-title">
+            <h4><i class="glyphicon glyphicon-th-list my_font4"></i> 最近出售记录</h4>
+            <span class="tools my_font3">
+                  <i data-toggle="collapse"  data-target="#player_userInfo_3" class="glyphicon glyphicon-menu-down"></i>
+                  <i ng-click="lookMore(2)" data-toggle="game_SMC_tooltip" data-placement="top" title="查看更多">
+                      <i class="glyphicon glyphicon-zoom-in"></i>
+                  </i>
+            </span>
+        </div>
+        <div  class="widget-body collapse in" style="padding: 0;" id="player_userInfo_3">
+            <div class="text-center userInfo_list">
+                <table class="table table-bordered my_table" style="table-layout:fixed;">
+                    <thead>
+                    <tr role="row" class="my_table_tr" ng-class="table_class">
+                        <th style="width: 55px;border-bottom-width:0;">编号</th>
+                        <th style="width: 100px;border-bottom-width:0;">{{money_name}}</th>
+                        <th style="width: 100px;border-bottom-width:0;">出售方</th>
+                        <th style="width: 100px;border-bottom-width:0;">出售方身份</th>
+                        <th style="width: 80px;border-bottom-width:0;">出售时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="info in sellInfo" ng-class="info.class">
+                        <td ng-bind="info.num" class="text-center"></td>
+                        <td ng-bind="info.money"></td>
+                        <td>
+                            <span ng-bind="info.userName" data-toggle="game_SMC_tooltip"  data-placement="right" title="ID:{{info.p_uId}}"></span>
+                        </td>
+                        <td ng-bind="info.levelName"></td>
+                        <td ng-bind="info.createTime"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

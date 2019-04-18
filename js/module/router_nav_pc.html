@@ -1,0 +1,14 @@
+<div class="router_nav">
+    <h3 ng-bind="nav_info.name">
+
+    </h3>
+    <div  class="search">
+        <!--<ul>-->
+
+        <!--</ul>-->
+    </div>
+    <div class="pull-right search-wrap">
+        <input ng-keyup="search($event)" class="my_box_size" type="text" ng-model="scopeStr" maxlength="30" placeholder="{{searchPlaceholder}}">
+        <button class="btn" ng-click="search()" type="button"><i class="glyphicon glyphicon-search"></i> </button>
+    </div>
+</div>
